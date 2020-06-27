@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var step = 1
+    @State private var SlideGesture = CGSize.zero
     
     var body: some View {
         ZStack{
@@ -35,7 +36,7 @@ struct ContentView: View {
                             Text("Твои глаза в твоих руках")
                                 .padding()
                                 .fixedSize(horizontal: false, vertical: true)
-                                .animation(Animation.interpolatingSpring(stiffness: 40, damping: 7).delay(0.1))
+                                .animation(Animation.interpolatingSpring(stiffness: 25, damping: 7).delay(0.1))
                         }
                         .frame(width: geometry.frame(in: .global).width)
                         
@@ -45,7 +46,7 @@ struct ContentView: View {
                             Text("Глазобилдер")
                                 .padding()
                                 .fixedSize(horizontal: false, vertical: true)
-                                .animation(Animation.interpolatingSpring(stiffness: 40, damping: 7).delay(0.1))
+                                .animation(Animation.interpolatingSpring(stiffness: 25, damping: 7).delay(0.1))
                         }
                         .frame(width: geometry.frame(in: .global).width)
                         
@@ -55,7 +56,7 @@ struct ContentView: View {
                             Text("Будешь видеть с километра")
                                 .padding()
                                 .fixedSize(horizontal: false, vertical: true)
-                                .animation(Animation.interpolatingSpring(stiffness: 40, damping: 7).delay(0.1))
+                                .animation(Animation.interpolatingSpring(stiffness: 25, damping: 7).delay(0.1))
                         }
                         .frame(width: geometry.frame(in: .global).width)
                     }
@@ -64,9 +65,36 @@ struct ContentView: View {
                     .font(.title).padding(.vertical, 60)
                     .frame(width: geometry.frame(in: .global).width * 3)
                     .frame(maxHeight: .infinity)
+                    .offset(x: self.SlideGesture.width)
                     .offset(x: self.step == 1 ? geometry.frame(in: .global).width : self.step == 2 ? 0 : -geometry.frame(in: .global).width)
                     .animation(Animation.interpolatingSpring(stiffness: 40, damping: 8))
                 }
+                .gesture(
+                    DragGesture().onChanged { value in
+                        self.SlideGesture = value.translation
+                    }
+                    .onEnded { value in
+                        if self.SlideGesture.width < -150 {
+                            switch self.step {
+                            case 1:
+                                self.step = 2
+                            case 2:
+                                self.step = 3
+                            default: break
+                            }
+                        }
+                        if self.SlideGesture.width > 150 {
+                            switch self.step {
+                            case 3:
+                                self.step = 2
+                            case 2:
+                                self.step = 1
+                            default: break
+                            }
+                        }
+                        self.SlideGesture = .zero
+                    }
+                )
                 HStack(spacing: 20){
                     Button(action: {
                         self.step = 1
