@@ -12,6 +12,7 @@ struct OnboardingView: View {
     
     @State private var step = 1
     @State private var SlideGesture = CGSize.zero
+    @State private var isHomeView = false
     
     var body: some View {
         ZStack{
@@ -123,7 +124,7 @@ struct OnboardingView: View {
                 .accentColor(Color("Light"))
                 
                 Button(action: {
-                    //                    go to next screen
+                    self.isHomeView = true
                 }) {
                     HStack {
                         Text("Продолжить")
@@ -139,7 +140,9 @@ struct OnboardingView: View {
                     .animation(Animation.interpolatingSpring(stiffness: 50, damping: 10, initialVelocity: 10))
                 }
             }
-            
+            if self.isHomeView {
+                HomeView()
+            }
         }
     }
 }
