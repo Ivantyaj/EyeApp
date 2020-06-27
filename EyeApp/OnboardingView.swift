@@ -125,6 +125,7 @@ struct OnboardingView: View {
                 
                 Button(action: {
                     self.isHomeView = true
+                    UserDefaults.standard.set(true, forKey: "didLaunchBefore")
                 }) {
                     HStack {
                         Text("Продолжить")

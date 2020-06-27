@@ -15,7 +15,6 @@ class ViewRouter: ObservableObject {
     
     init() {
         if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
-            UserDefaults.standard.set(true, forKey: "didLaunchBefore")
             currentPage = "onboardingView"
         } else {
             currentPage = "homeView"
