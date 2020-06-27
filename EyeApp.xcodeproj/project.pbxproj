@@ -13,6 +13,9 @@
 		E221CE1824A485FB00EE6BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E221CE1724A485FB00EE6BE3 /* Assets.xcassets */; };
 		E221CE1B24A485FB00EE6BE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E221CE1A24A485FB00EE6BE3 /* Preview Assets.xcassets */; };
 		E221CE1E24A485FB00EE6BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E221CE1C24A485FB00EE6BE3 /* LaunchScreen.storyboard */; };
+		E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */; };
+		E221CE4E24A7502100EE6BE3 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */; };
+		E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4F24A750DA00EE6BE3 /* MotherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		E221CE1A24A485FB00EE6BE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E221CE1D24A485FB00EE6BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E221CE1F24A485FB00EE6BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		E221CE4F24A750DA00EE6BE3 /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				E221CE1C24A485FB00EE6BE3 /* LaunchScreen.storyboard */,
 				E221CE1F24A485FB00EE6BE3 /* Info.plist */,
 				E221CE1924A485FB00EE6BE3 /* Preview Content */,
+				E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */,
+				E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */,
+				E221CE4F24A750DA00EE6BE3 /* MotherView.swift */,
 			);
 			path = EyeApp;
 			sourceTree = "<group>";
@@ -146,7 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E221CE4E24A7502100EE6BE3 /* ViewRouter.swift in Sources */,
+				E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */,
 				E221CE1224A485F600EE6BE3 /* AppDelegate.swift in Sources */,
+				E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */,
 				E221CE1424A485F600EE6BE3 /* SceneDelegate.swift in Sources */,
 				E221CE1624A485F600EE6BE3 /* OnboardingView.swift in Sources */,
 			);
