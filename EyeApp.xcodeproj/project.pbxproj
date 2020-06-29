@@ -16,6 +16,8 @@
 		E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */; };
 		E221CE4E24A7502100EE6BE3 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */; };
 		E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4F24A750DA00EE6BE3 /* MotherView.swift */; };
+		E221CE5424AA7F3A00EE6BE3 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */; };
+		E221CE5624AA7F6000EE6BE3 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5524AA7F6000EE6BE3 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		E221CE4F24A750DA00EE6BE3 /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
+		E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		E221CE5524AA7F6000EE6BE3 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */,
 				E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */,
 				E221CE4F24A750DA00EE6BE3 /* MotherView.swift */,
+				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
+				E221CE5524AA7F6000EE6BE3 /* Tests.swift */,
 			);
 			path = EyeApp;
 			sourceTree = "<group>";
@@ -156,8 +162,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E221CE4E24A7502100EE6BE3 /* ViewRouter.swift in Sources */,
+				E221CE5624AA7F6000EE6BE3 /* Tests.swift in Sources */,
 				E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */,
 				E221CE1224A485F600EE6BE3 /* AppDelegate.swift in Sources */,
+				E221CE5424AA7F3A00EE6BE3 /* Exercises.swift in Sources */,
 				E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */,
 				E221CE1424A485F600EE6BE3 /* SceneDelegate.swift in Sources */,
 				E221CE1624A485F600EE6BE3 /* OnboardingView.swift in Sources */,
