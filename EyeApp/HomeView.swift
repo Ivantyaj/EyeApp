@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var isExercisesView = false
+    @State private var isTestsView = false
+    
+    @State private var isShowingHomeView = true
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -17,7 +22,7 @@ struct HomeView: View {
                 
                 GeometryReader{ geometry in
                     VStack {
-                        NavigationLink(destination: Exercises()) {
+                        NavigationLink(destination: Exercises().onAppear{self.isShowingHomeView = false}, isActive: self.$isExercisesView) {
                             ZStack {
                                 Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
                                 VStack {
@@ -34,7 +39,7 @@ struct HomeView: View {
                             .cornerRadius(30)
                             .padding()
                         }
-                        NavigationLink(destination: Tests()) {
+                        NavigationLink(destination: Tests().onAppear{self.isShowingHomeView = false}, isActive: self.$isTestsView) {
                             ZStack {
                                 Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
                                 VStack {
@@ -53,7 +58,7 @@ struct HomeView: View {
                         }
                             
                         .frame(width: geometry.size.width, height: geometry.frame(in: .global).height/2)
-
+                        
                     }
                     .padding(.horizontal)
                     
@@ -61,7 +66,10 @@ struct HomeView: View {
                 }
             }
             .navigationBarTitle(Text("Назад"))
-            .navigationBarHidden(true)
+            .navigationBarHidden(isShowingHomeView)
+            .onAppear {
+                self.isShowingHomeView = true
+            }
         }
         
         
