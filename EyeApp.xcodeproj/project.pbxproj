@@ -18,6 +18,8 @@
 		E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE4F24A750DA00EE6BE3 /* MotherView.swift */; };
 		E221CE5424AA7F3A00EE6BE3 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */; };
 		E221CE5624AA7F6000EE6BE3 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5524AA7F6000EE6BE3 /* Tests.swift */; };
+		E221CE5C24AB6B7700EE6BE3 /* AmslerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5B24AB6B7700EE6BE3 /* AmslerTest.swift */; };
+		E221CE6124ABA89000EE6BE3 /* AmslerModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E221CE4F24A750DA00EE6BE3 /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
 		E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 		E221CE5524AA7F6000EE6BE3 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		E221CE5B24AB6B7700EE6BE3 /* AmslerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmslerTest.swift; sourceTree = "<group>"; };
+		E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmslerModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		E221CE1024A485F600EE6BE3 /* EyeApp */ = {
 			isa = PBXGroup;
 			children = (
+				E221CE5A24AB6AFF00EE6BE3 /* Tests Views */,
 				E221CE1124A485F600EE6BE3 /* AppDelegate.swift */,
 				E221CE1324A485F600EE6BE3 /* SceneDelegate.swift */,
 				E221CE1524A485F600EE6BE3 /* OnboardingView.swift */,
@@ -88,6 +93,15 @@
 				E221CE1A24A485FB00EE6BE3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E221CE5A24AB6AFF00EE6BE3 /* Tests Views */ = {
+			isa = PBXGroup;
+			children = (
+				E221CE5B24AB6B7700EE6BE3 /* AmslerTest.swift */,
+				E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */,
+			);
+			path = "Tests Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +183,8 @@
 				E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */,
 				E221CE1424A485F600EE6BE3 /* SceneDelegate.swift in Sources */,
 				E221CE1624A485F600EE6BE3 /* OnboardingView.swift in Sources */,
+				E221CE6124ABA89000EE6BE3 /* AmslerModalView.swift in Sources */,
+				E221CE5C24AB6B7700EE6BE3 /* AmslerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
