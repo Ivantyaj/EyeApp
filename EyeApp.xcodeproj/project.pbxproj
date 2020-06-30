@@ -20,6 +20,7 @@
 		E221CE5624AA7F6000EE6BE3 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5524AA7F6000EE6BE3 /* Tests.swift */; };
 		E221CE5C24AB6B7700EE6BE3 /* AmslerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE5B24AB6B7700EE6BE3 /* AmslerTest.swift */; };
 		E221CE6124ABA89000EE6BE3 /* AmslerModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */; };
+		E29FBE9A24ABB8DD00AD2814 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E221CE5524AA7F6000EE6BE3 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		E221CE5B24AB6B7700EE6BE3 /* AmslerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmslerTest.swift; sourceTree = "<group>"; };
 		E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmslerModalView.swift; sourceTree = "<group>"; };
+		E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				E221CE4F24A750DA00EE6BE3 /* MotherView.swift */,
 				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
 				E221CE5524AA7F6000EE6BE3 /* Tests.swift */,
+				E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */,
 			);
 			path = EyeApp;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				E221CE5624AA7F6000EE6BE3 /* Tests.swift in Sources */,
 				E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */,
 				E221CE1224A485F600EE6BE3 /* AppDelegate.swift in Sources */,
+				E29FBE9A24ABB8DD00AD2814 /* SquareButton.swift in Sources */,
 				E221CE5424AA7F3A00EE6BE3 /* Exercises.swift in Sources */,
 				E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */,
 				E221CE1424A485F600EE6BE3 /* SceneDelegate.swift in Sources */,

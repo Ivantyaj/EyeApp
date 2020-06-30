@@ -34,7 +34,7 @@ struct AmslerModalView: View{
                     .padding(.horizontal)
                 
                 Spacer()
-                Text("Modal view")
+
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {

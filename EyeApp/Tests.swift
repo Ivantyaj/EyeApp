@@ -10,7 +10,37 @@ import SwiftUI
 
 struct Tests: View {
     var body: some View {
-        Text("Тесты")
+        VStack {
+            HStack {
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton()
+                }
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton()
+                }
+            }
+            
+            HStack {
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton()
+                }
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton()
+                }
+            }
+            
+            HStack {
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton()
+                }
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton()
+                }
+                
+            }
+            
+        }
+        .navigationBarTitle("Тесты")
     }
 }
 
