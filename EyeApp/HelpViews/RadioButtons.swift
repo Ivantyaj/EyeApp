@@ -46,9 +46,10 @@ struct RadioButtons: View {
                 .padding(.top)
             }
             
-            HStack{
+            HStack(){
                 Spacer()
                 Button(action: {
+//                    self.show = self.selected != "" ? true : false
                     self.show.toggle()
                 }) {
                     Text("Продолжить")
@@ -62,6 +63,7 @@ struct RadioButtons: View {
                     .clipShape(Capsule())
                     .disabled(self.selected != "" ? false : true)
             }
+            
         }
         .padding(.vertical)
         .padding(.horizontal, 25)

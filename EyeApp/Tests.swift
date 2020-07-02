@@ -13,28 +13,28 @@ struct Tests: View {
         VStack {
             HStack {
                 NavigationLink(destination: AmslerTest()) {
-                    SquareButton()
+                    SquareButton(title: "Тест Амслера")
                 }
-                NavigationLink(destination: AmslerTest()) {
-                    SquareButton()
-                }
-            }
-            
-            HStack {
-                NavigationLink(destination: AmslerTest()) {
-                    SquareButton()
-                }
-                NavigationLink(destination: AmslerTest()) {
-                    SquareButton()
+                NavigationLink(destination: DaltonismTest()) {
+                    SquareButton(title: "Тест на дальтонизм")
                 }
             }
             
             HStack {
                 NavigationLink(destination: AmslerTest()) {
-                    SquareButton()
+                    SquareButton(title: "Test")
                 }
                 NavigationLink(destination: AmslerTest()) {
-                    SquareButton()
+                    SquareButton(title: "Test")
+                }
+            }
+            
+            HStack {
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton(title: "Test")
+                }
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton(title: "Test")
                 }
                 
             }

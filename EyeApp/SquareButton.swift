@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct SquareButton: View {
+    var title : String
+    
     var body: some View {
         ZStack {
             Image("")
@@ -16,7 +18,7 @@ struct SquareButton: View {
                 .aspectRatio(contentMode: .fit)
                 .background(Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 0.4459813784)))
                 .cornerRadius(40)
-            Text("Test")
+            Text(title)
                 .font(.largeTitle)
         }
     }
@@ -24,6 +26,6 @@ struct SquareButton: View {
 
 struct SquareButton_Previews: PreviewProvider {
     static var previews: some View {
-        SquareButton()
+        SquareButton(title: "Test")
     }
 }

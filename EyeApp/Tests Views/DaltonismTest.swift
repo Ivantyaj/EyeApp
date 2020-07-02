@@ -8,51 +8,73 @@
 
 import SwiftUI
 
+struct Card {
+    let id: Int
+    let image: String
+    let question: [String]
+    var answer: String = ""
+}
+//Card(id: , image: "D", question: ["","","",""]),
+var cards = [Card(id: 1, image: "D1", question: ["6","96","9", "Ничего не вижу"]),
+             Card(id: 2, image: "D2", question: ["Круг","Круг и треугольник","Треугольник","Ничего не вижу"]),
+             Card(id: 3, image: "D3", question: ["5","9","",""]),
+             Card(id: 4, image: "D4", question: ["Треугольник","Круг","",""]),
+             Card(id: 5, image: "D5", question: ["13","6","",""]),
+             Card(id: 6, image: "D6", question: ["Круг и треугольник","Ничего не вижу","",""]),
+             Card(id: 7, image: "D7", question: ["6","96","",""]),
+             Card(id: 8, image: "D8", question: ["Ничего не вижу","5","",""]),
+             Card(id: 9, image: "D9", question: ["6","8","9",""]),
+             Card(id: 10, image: "D10", question: ["136","66","68","69"]),
+]
+
 struct DaltonismTest: View {
-    @State private var showModal = false
+    
+    @State private var answer = ""
+    @State private var nextCardToggled = false
+    
+    @State private var currentCard = 0
+    
+    @State private var answers : [String] = []
     
     var body: some View {
-        ZStack {
-                Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
-                    .edgesIgnoringSafeArea(.all)
-                GeometryReader{ geometry in
-                    VStack {
-                        Spacer()
-                        Text("Тест Амслера")
-                            .font(.largeTitle)
-                        Image("AmslerGrid")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal)
-                        Text("""
-        1. Наденьте очки или контактные линзы (если вы их обычно носите).
-        2. Расположите сетку перед собой на расстоянии 20-30 см.
-        3. Прикройте 1 глаз.
-        4. Сосредоточив взгляд на центральной точке, оцените остальную часть сетки.
-            - Все ли линии сетки прямые и ровные?
-            - Все ли квадраты решетки одинакового размера?
-            - Нет ли зон, где рисунок искажается, затуманивается, обесцвечивается?
-        """)
-                            .fontWeight(.regular)
-                            .multilineTextAlignment(.leading)
-                            .padding(.horizontal)
-                            
-                        
-                        //                    .frame(width: geometry.size.width)
-                        Spacer()
-                        Button(action: {
-                            self.showModal = true
-                        }) {
-                            Text("Подробности теста")
-                        }.sheet(isPresented: self.$showModal) {
-//                            AmslerModalView()
-                            Text("Подробности теста")
-                        }
-                    }
-                }
+        VStack {
+            if self.answer != ""{
+                Text(answer)
             }
+            
+            ForEach(answers, id: \.self){ i in
+                Text(i)
+            }
+            
+            VStack {
+                
+                if currentCard < cards.count {
+                    DaltonismCard(card: cards[currentCard], selected: self.$answer, nextCardToggled: self.$nextCardToggled)
+                }
+                
+                Button(action: {
+                    self.testFunc()
+                }) {
+                    Text("btn")
+                }
+//                ForEach(cards, id: \.id) { card in
+//
+//                    DaltonismCard(image: card.image, question: card.question, selected: self.$answer, nextCardToggled: self.$nextCardToggled)
+//
+//                }
+            }
+        }
+    }
+    func testFunc() -> Void {
+        if answer != "" {
+            answers.append(answer)
+            answer = ""
+            currentCard += 1
+        }
     }
 }
+
+
 
 struct DaltonismTest_Previews: PreviewProvider {
     static var previews: some View {
