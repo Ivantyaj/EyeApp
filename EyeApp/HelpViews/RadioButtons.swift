@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-var dataTest = ["Test1", "Test2", "Test3"]
+var dataTest = ["Test1", "Test2", "", "Test3", ""]
 
 struct RadioButtons: View {
     var data : [String]
@@ -23,21 +23,24 @@ struct RadioButtons: View {
                     self.selected = i
                 }) {
                     HStack{
-                        Text(i)
-                        Spacer()
-                        
-                        ZStack {
-                            Circle()
-                                .fill(self.selected == i ? Color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.5)): Color.black.opacity(0.2))
-                                .frame(width: 18, height: 18)
+                        if (i != "") {
+                            Text(i)
+                                .font(.title)
+                            Spacer()
                             
-                            if self.selected == i {
-                                Circle().stroke(Color(#colorLiteral(red: 0, green: 0.9273002148, blue: 0.2516316175, alpha: 1)), lineWidth: 4)
-                                .frame(width: 25, height: 25)
+                            ZStack {
+                                Circle()
+                                    .fill(self.selected == i ? Color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.5)): Color.black.opacity(0.2))
+                                    .frame(width: 25, height: 25)
+                                
+                                if self.selected == i {
+                                    Circle().stroke(Color(#colorLiteral(red: 0, green: 0.9273002148, blue: 0.2516316175, alpha: 1)), lineWidth: 4)
+                                        .frame(width: 25, height: 25)
+                                }
                             }
                         }
-                        
                     }
+                    .frame(height: 25)
                     .foregroundColor(.black)
                 }
                 .padding(.top)
@@ -56,7 +59,7 @@ struct RadioButtons: View {
                 .background(
                     self.selected != "" ? Color(#colorLiteral(red: 0, green: 0.9273002148, blue: 0.2516316175, alpha: 1)) : Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))
                 )
-                .clipShape(Capsule())
+                    .clipShape(Capsule())
                     .disabled(self.selected != "" ? false : true)
             }
         }

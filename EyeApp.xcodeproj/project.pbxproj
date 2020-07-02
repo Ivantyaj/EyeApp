@@ -90,9 +90,9 @@
 				E221CE4B24A74FDF00EE6BE3 /* HomeView.swift */,
 				E221CE4D24A7502100EE6BE3 /* ViewRouter.swift */,
 				E221CE4F24A750DA00EE6BE3 /* MotherView.swift */,
-				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
-				E221CE5524AA7F6000EE6BE3 /* Tests.swift */,
 				E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */,
+				E221CE5524AA7F6000EE6BE3 /* Tests.swift */,
+				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
 			);
 			path = EyeApp;
 			sourceTree = "<group>";
