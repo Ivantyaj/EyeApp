@@ -24,6 +24,7 @@
 		E29FBE9C24AC90EB00AD2814 /* DaltonismTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBE9B24AC90EB00AD2814 /* DaltonismTest.swift */; };
 		E29FBE9E24ACB1A100AD2814 /* DaltonismCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBE9D24ACB1A100AD2814 /* DaltonismCard.swift */; };
 		E29FBEA124ACB8C900AD2814 /* RadioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBEA024ACB8C900AD2814 /* RadioButtons.swift */; };
+		E29FBEA324AF10A800AD2814 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBEA224AF10A800AD2814 /* Cards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E29FBE9B24AC90EB00AD2814 /* DaltonismTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaltonismTest.swift; sourceTree = "<group>"; };
 		E29FBE9D24ACB1A100AD2814 /* DaltonismCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaltonismCard.swift; sourceTree = "<group>"; };
 		E29FBEA024ACB8C900AD2814 /* RadioButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtons.swift; sourceTree = "<group>"; };
+		E29FBEA224AF10A800AD2814 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				E29FBEA024ACB8C900AD2814 /* RadioButtons.swift */,
+				E29FBEA224AF10A800AD2814 /* Cards.swift */,
 			);
 			path = HelpViews;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29FBEA324AF10A800AD2814 /* Cards.swift in Sources */,
 				E221CE4E24A7502100EE6BE3 /* ViewRouter.swift in Sources */,
 				E29FBEA124ACB8C900AD2814 /* RadioButtons.swift in Sources */,
 				E29FBE9E24ACB1A100AD2814 /* DaltonismCard.swift in Sources */,

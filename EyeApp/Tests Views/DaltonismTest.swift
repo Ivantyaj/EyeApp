@@ -8,25 +8,6 @@
 
 import SwiftUI
 
-struct Card {
-    let id: Int
-    let image: String
-    let question: [String]
-    var answer: String = ""
-}
-//Card(id: , image: "D", question: ["","","",""]),
-var cards = [Card(id: 1, image: "D1", question: ["6","96","9", "Ничего не вижу"]),
-             Card(id: 2, image: "D2", question: ["Круг","Круг и треугольник","Треугольник","Ничего не вижу"]),
-             Card(id: 3, image: "D3", question: ["5","9","",""]),
-             Card(id: 4, image: "D4", question: ["Треугольник","Круг","",""]),
-//             Card(id: 5, image: "D5", question: ["13","6","",""]),
-//             Card(id: 6, image: "D6", question: ["Круг и треугольник","Ничего не вижу","",""]),
-//             Card(id: 7, image: "D7", question: ["6","96","",""]),
-//             Card(id: 8, image: "D8", question: ["Ничего не вижу","5","",""]),
-//             Card(id: 9, image: "D9", question: ["6","8","9",""]),
-//             Card(id: 10, image: "D10", question: ["136","66","68","69"]),
-]
-
 struct DaltonismTest: View {
     
     @State private var answer = ""
@@ -36,6 +17,9 @@ struct DaltonismTest: View {
     @State private var currentCard = 0
     
     @State private var answers : [String] = []
+    @State private var answersToCheck : [Answer] = []
+    
+    @State private var result : (Int, Int, Int) = (0, 0, 0)
     
     var body: some View {
         VStack {
@@ -56,6 +40,15 @@ struct DaltonismTest: View {
                 Button(action: {
                     self.testFunc()
                     self.changeTitle()
+                    
+                    var answerList : [String] = []
+                    answerList.append(self.answers[self.currentCard-1])
+
+                    self.answersToCheck.append(Answer(questionNum: self.currentCard, answers: answerList))
+                    
+                    if self.currentCard >= cards.endIndex {
+                        self.result = check(answers: self.answersToCheck, normalAnswers: normal, protanopeAnswers: protanope, deiteranopeAnswers: deiteranope)
+                    }
                 }) {
                     Text("Продолжить")
                         .padding(.vertical)
@@ -73,6 +66,14 @@ struct DaltonismTest: View {
 //
 //                }
             }
+            
+            
+            if currentCard >= cards.endIndex {
+                Text("Normal = " + String(result.0))
+                Text("Protanope = " + String(result.1))
+                Text("Deiteranope = " + String(result.2))
+            }
+            
         }
         .navigationBarTitle(navBarTitle)
         .onAppear {
