@@ -23,55 +23,57 @@ struct DaltonismTest: View {
     
     var body: some View {
         VStack {
-            if self.answer != ""{
-                Text(answer)
-            }
-            
-            ForEach(answers, id: \.self){ i in
-                Text(i)
-            }
+            //            if self.answer != ""{
+            //                Text(answer)
+            //            }
+            //
+            //            ForEach(answers, id: \.self){ i in
+            //                Text(i)
+            //            }
             
             VStack {
                 
                 if currentCard < cards.count {
                     DaltonismCard(card: cards[currentCard], selected: self.$answer, nextCardToggled: self.$nextCardToggled)
                 }
-                
-                Button(action: {
-                    self.testFunc()
-                    self.changeTitle()
-                    
-                    var answerList : [String] = []
-                    answerList.append(self.answers[self.currentCard-1])
-
-                    self.answersToCheck.append(Answer(questionNum: self.currentCard, answers: answerList))
-                    
-                    if self.currentCard >= cards.endIndex {
-                        self.result = check(answers: self.answersToCheck, normalAnswers: normal, protanopeAnswers: protanope, deiteranopeAnswers: deiteranope)
+                if currentCard < cards.endIndex {
+                    Button(action: {
+                        self.testFunc()
+                        self.changeTitle()
+                        
+                        var answerList : [String] = []
+                        answerList.append(self.answers[self.currentCard-1])
+                        
+                        self.answersToCheck.append(Answer(questionNum: self.currentCard, answers: answerList))
+                        
+                        if self.currentCard >= cards.endIndex {
+                            self.result = check(answers: self.answersToCheck, normalAnswers: normal, protanopeAnswers: protanope, deiteranopeAnswers: deiteranope)
+                        }
+                    }) {
+                        Text("Продолжить")
+                            .padding(.vertical)
+                            .padding(.horizontal, 25)
+                            .foregroundColor(.white)
                     }
-                }) {
-                    Text("Продолжить")
-                        .padding(.vertical)
-                        .padding(.horizontal, 25)
-                        .foregroundColor(.white)
+                    .background(
+                        self.answer != "" ? Color(#colorLiteral(red: 0, green: 0.9273002148, blue: 0.2516316175, alpha: 1)) : Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))
+                    )
+                        .clipShape(Capsule())
+                        .disabled(self.answer != "" ? false : true)
                 }
-                .background(
-                    self.answer != "" ? Color(#colorLiteral(red: 0, green: 0.9273002148, blue: 0.2516316175, alpha: 1)) : Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))
-                )
-                    .clipShape(Capsule())
-                    .disabled(self.answer != "" ? false : true)
-//                ForEach(cards, id: \.id) { card in
-//
-//                    DaltonismCard(image: card.image, question: card.question, selected: self.$answer, nextCardToggled: self.$nextCardToggled)
-//
-//                }
+                //                ForEach(cards, id: \.id) { card in
+                //
+                //                    DaltonismCard(image: card.image, question: card.question, selected: self.$answer, nextCardToggled: self.$nextCardToggled)
+                //
+                //                }
             }
             
             
             if currentCard >= cards.endIndex {
-                Text("Normal = " + String(result.0))
-                Text("Protanope = " + String(result.1))
-                Text("Deiteranope = " + String(result.2))
+                
+                Text("Норма " + String(result.0) + " из " + String(cards.endIndex))
+                Text("Протанопия " + String(result.1) + " из " + String(cards.endIndex))
+                Text("Дейтеранопия " + String(result.2) + " из " + String(cards.endIndex))
             }
             
         }

@@ -22,17 +22,22 @@ struct DaltonismCard: View {
     
     var body: some View {
         VStack {
-            //            DELETE
-            
-            
-            
-            if self.nextCardToggled {
-                Text(selected)
+
+          
+            VStack {
+                
+//                if self.nextCardToggled {
+//                    Text(selected)
+//                }
+                
+                Image(card.image).resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+                Text("Что вы видите на картинке?")
+                    .font(.title)
+                
             }
-            Image(card.image).resizable()
-            Text("Что вы видите на картинке?")
-                .font(.title)
-            
+
             
             //            RadioButtons(data: card.question, selected: self.$selected, show: self.$nextCardToggled)
             
