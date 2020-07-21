@@ -10,7 +10,36 @@ import SwiftUI
 
 struct Exercises: View {
     var body: some View {
-        Text("Упражнения")
+        VStack {
+            HStack {
+                NavigationLink(destination: CarouselView(title: "Гимнастика для глаз")) {
+                    SquareButton(title: "Гимнастика")
+                }
+                NavigationLink(destination: DaltonismTest()) {
+                    SquareButton(title: "Тренировка")
+                }
+            }
+            
+            HStack {
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton(title: "Test")
+                }
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton(title: "Test")
+                }
+            }
+            
+            HStack {
+                NavigationLink(destination: AmslerTest()) {
+                    SquareButton(title: "Test")
+                }
+                NavigationLink(destination: CarouselView(title: "Гимнастика для глаз")) {
+                    SquareButton(title: "Test")
+                }
+                
+            }
+        }
+        .navigationBarTitle("Упражнения")
     }
 }
 

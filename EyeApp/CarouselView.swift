@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CarouselView : View {
     
-    var title : String
+    var title : String = ""
     
     @State var x : CGFloat = 0
     @State var count : CGFloat = 0
@@ -19,13 +19,9 @@ struct CarouselView : View {
     
     @State var data = [
 
-        TaskCard(id: 0, img: " P1", name: "Jill ыларплрывла фылва ыфрвадлфоыр вдф ывалдфы валрфы аврфд ыа фыдвлард фврадфы вдыфвра доывра дыра др", show: false),
-        TaskCard(id: 1, img: "p2", name: "Emma", show: false),
-        TaskCard(id: 2, img: "p3", name: "Catherine", show: false),
-        TaskCard(id: 3, img: "p4", name: "iJustine", show: false),
-        TaskCard(id: 4, img: "p5", name: "Juliana", show: false),
-        TaskCard(id: 5, img: "p6", name: "Lilly", show: false),
-        TaskCard(id: 6, img: "p7", name: "Emily", show: false)
+        TaskCard(id: 0, img: "EXG3", name: "Води глазами туда-сюда\nКрайнe полезное упражнение и вот это вот все", show: false),
+        TaskCard(id: 1, img: "EXG4", name: "По углам резко", show: false),
+        TaskCard(id: 2, img: "EXG5", name: "Восьмёрочкой", show: false)
 
     ]
     
@@ -97,8 +93,8 @@ struct CarouselView : View {
                 
                 Spacer()
             }
-            .background(Color.black.opacity(0.07).edgesIgnoringSafeArea(.bottom))
             .navigationBarTitle(title)
+            .background(Color.black.opacity(0.07).edgesIgnoringSafeArea(.bottom))
             .animation(.spring())
             .onAppear {
                 
@@ -134,14 +130,16 @@ struct CardView : View {
     var body : some View{
         
         VStack(alignment: .leading, spacing: 0){
-            
+            Spacer()
             Image(data.img)
-            .resizable()
-            
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Spacer()
             Text(data.name)
                 .fontWeight(.bold)
                 .padding(.vertical, 13)
                 .padding(.leading)
+                .frame(height: 100)
             
         }
         .frame(width: UIScreen.main.bounds.width - 30, height: data.show ? 500 : 440)
