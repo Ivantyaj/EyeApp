@@ -20,6 +20,7 @@ struct MotherView: View {
                 HomeView()
             }
         }
+        .preferredColorScheme(.dark)
     }
 }
 

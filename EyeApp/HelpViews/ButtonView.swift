@@ -26,6 +26,7 @@ struct ButtonView: View {
                 .font(.largeTitle)
                 .bold()
         }
+        .padding(.horizontal)
     }
 }
 
