@@ -17,7 +17,7 @@ struct Tests: View {
                 ButtonView(title: "Тест Амслера", textColor: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), gradient: [Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)),Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))])
             }
             NavigationLink(destination: DaltonismTest()) {
-                ButtonView(title: "Тест Амслера", textColor: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), gradient: [Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)),Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))])
+                ButtonView(title: "Тест на дальтонизм", textColor: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), gradient: [Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)),Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))])
             }
             NavigationLink(destination: DaltonismTest()) {
                 ButtonView(title: "Тест", textColor: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), gradient: [Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)),Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))])

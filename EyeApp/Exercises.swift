@@ -19,8 +19,8 @@ struct Exercises: View {
             NavigationLink(destination: DaltonismTest()) {
                 ButtonView(title: "Расслабление")
             }
-            NavigationLink(destination: DaltonismTest()) {
-                ButtonView(title: "Тренировка")
+            NavigationLink(destination: AdBannerView()) {
+                ButtonView(title: "Реклама")
             }
             
             Spacer()
