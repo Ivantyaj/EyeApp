@@ -11,19 +11,21 @@ import SwiftUI
 struct Exercises: View {
     var body: some View {
         VStack {
-            Spacer()
-            
-            NavigationLink(destination: CarouselView(title: "Гимнастика для глаз")) {
-                ButtonView(title: "Гимнастика")
+            ScrollView{
+                Spacer()
+                NavigationLink(destination: CarouselView(title: "Гимнастика для глаз")) {
+                    ButtonView(title: "Гимнастика")
+                }
+                NavigationLink(destination: DaltonismTest()) {
+                    ButtonView(title: "Расслабление")
+                }
+                NavigationLink(destination: AdBannerView()) {
+                    ButtonView(title: "Реклама")
+                }
+                
+                Spacer()
             }
-            NavigationLink(destination: DaltonismTest()) {
-                ButtonView(title: "Расслабление")
-            }
-            NavigationLink(destination: AdBannerView()) {
-                ButtonView(title: "Реклама")
-            }
-            
-            Spacer()
+            AdBannerView()
         }
         .navigationBarTitle("Упражнения")
     }

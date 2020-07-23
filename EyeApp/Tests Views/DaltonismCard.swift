@@ -34,14 +34,14 @@ struct DaltonismCard: View {
                     .aspectRatio(contentMode: .fit)
                 
                 Text("Что вы видите на картинке?")
-                    .font(.title)
+                    .font(.system(size: 25))
                 
             }
 
             
             //            RadioButtons(data: card.question, selected: self.$selected, show: self.$nextCardToggled)
             
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 15) {
                 ForEach(card.question, id: \.self){i in
                     Button(action: {
                         self.selected = i
@@ -49,7 +49,8 @@ struct DaltonismCard: View {
                         HStack{
                             if (i != "") {
                                 Text(i)
-                                    .font(.title)
+                                    .font(.system(size: 20))
+                                
                                 Spacer()
                                 
                                 ZStack {
@@ -64,7 +65,7 @@ struct DaltonismCard: View {
                                 }
                             }
                         }
-                        .frame(height: 25)
+                        .frame(height: 10)
                         .foregroundColor(.black)
                     }
                     .padding(.top)
@@ -93,11 +94,12 @@ struct DaltonismCard: View {
 //                }
                 
             }
-            .padding(.vertical)
+//            .padding(.vertical)
             .padding(.horizontal, 25)
             .background(Color(#colorLiteral(red: 0.9131513834, green: 0.907723248, blue: 0.9173240066, alpha: 0.5)))
             .cornerRadius(25)
         }
+        .padding(.horizontal)
     }
 }
 

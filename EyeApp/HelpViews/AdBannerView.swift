@@ -13,9 +13,10 @@ struct AdBannerView: View {
     var body: some View {
         VStack {
             AdView()
-            .frame(width: 320, height: 50, alignment: .center)
+                .frame(height: 50, alignment: .center)
+                
         }
-        .background(Color.black)
+        .background(Color.white)
     }
 }
 

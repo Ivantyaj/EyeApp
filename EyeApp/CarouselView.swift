@@ -93,6 +93,8 @@ struct CarouselView : View {
                 .offset(x: self.op)
             }
             Spacer()
+            
+            AdBannerView()
         }
         .navigationBarTitle(title)
         .background(Color.black.opacity(0.07).edgesIgnoringSafeArea(.bottom))

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct DaltonismTest: View {
     
@@ -21,6 +22,8 @@ struct DaltonismTest: View {
     
     @State private var result : (Int, Int, Int) = (0, 0, 0)
     
+    @State private var interstital : GADInterstitial!
+    
     var body: some View {
         VStack {
             //            if self.answer != ""{
@@ -30,6 +33,7 @@ struct DaltonismTest: View {
             //            ForEach(answers, id: \.self){ i in
             //                Text(i)
             //            }
+            Spacer()
             
             VStack {
                 
@@ -48,6 +52,12 @@ struct DaltonismTest: View {
                         
                         if self.currentCard >= cards.endIndex {
                             self.result = check(answers: self.answersToCheck, normalAnswers: normal, protanopeAnswers: protanope, deiteranopeAnswers: deiteranope)
+                            
+                            
+                            if self.interstital.isReady{
+                                let root = UIApplication.shared.windows.first?.rootViewController
+                                self.interstital.present(fromRootViewController: root!)
+                            }
                         }
                     }) {
                         Text("Продолжить")
@@ -61,6 +71,8 @@ struct DaltonismTest: View {
                         .clipShape(Capsule())
                         .disabled(self.answer != "" ? false : true)
                 }
+                
+                
                 //                ForEach(cards, id: \.id) { card in
                 //
                 //                    DaltonismCard(image: card.image, question: card.question, selected: self.$answer, nextCardToggled: self.$nextCardToggled)
@@ -68,18 +80,30 @@ struct DaltonismTest: View {
                 //                }
             }
             
+
             
             if currentCard >= cards.endIndex {
                 
                 Text("Норма " + String(result.0) + " из " + String(cards.endIndex))
                 Text("Протанопия " + String(result.1) + " из " + String(cards.endIndex))
                 Text("Дейтеранопия " + String(result.2) + " из " + String(cards.endIndex))
+                
             }
             
+            Spacer()
+            
+            AdBannerView()
+            
+            
         }
-        .navigationBarTitle(navBarTitle)
+//        .navigationBarTitle(navBarTitle)
+        .navigationBarTitle(Text(navBarTitle), displayMode: .inline)
         .onAppear {
             self.changeTitle()
+            
+            self.interstital = GADInterstitial(adUnitID: "ca-app-pub-7080651716382146/2705283372")
+            let req = GADRequest()
+            self.interstital.load(req)
         }
     }
     
