@@ -12,18 +12,11 @@ struct Exercises: View {
     var body: some View {
         VStack {
             ScrollView{
-                Spacer()
-                NavigationLink(destination: CarouselView(title: "Гимнастика для глаз")) {
-                    ButtonView(title: "Гимнастика")
+                ForEach(ex) { exData in
+                    NavigationLink(destination: CarouselView(navBarTitle: exData.name, data: exData.cards)) {
+                        ButtonView(title: exData.name)
+                    }
                 }
-                NavigationLink(destination: DaltonismTest()) {
-                    ButtonView(title: "Расслабление")
-                }
-                NavigationLink(destination: AdBannerView()) {
-                    ButtonView(title: "Реклама")
-                }
-                
-                Spacer()
             }
             AdBannerView()
         }

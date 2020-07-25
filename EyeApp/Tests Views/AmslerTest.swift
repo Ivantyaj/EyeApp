@@ -20,6 +20,7 @@ struct AmslerTest: View {
                     Spacer()
                     Text("Тест Амслера")
                         .font(.largeTitle)
+                        .foregroundColor(.black)
                     Image("AmslerGrid")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -34,6 +35,7 @@ struct AmslerTest: View {
         - Нет ли зон, где рисунок искажается, затуманивается, обесцвечивается?
     """)
                         .fontWeight(.regular)
+                        .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal)
                         

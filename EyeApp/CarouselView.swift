@@ -10,7 +10,8 @@ import SwiftUI
 
 struct CarouselView : View {
     
-    var title : String = ""
+    @State var navBarTitle : String = ""
+    @State var data : [TaskCard]
     
     @State var x : CGFloat = 0
     @State var count : CGFloat = 0
@@ -18,20 +19,10 @@ struct CarouselView : View {
     @State var op : CGFloat = 0
     @State private var isShow = false
     
-    @State var data = [
-        
-        TaskCard(id: 0, img: "EXG3", name: "Води глазами туда-сюда\nКрайнe полезное упражнение и вот это вот все", show: false),
-        TaskCard(id: 1, img: "EXG4", name: "По углам резко", show: false),
-        TaskCard(id: 2, img: "EXG5", name: "Восьмёрочкой", show: false)
-        
-    ]
+    
     
     var body : some View{
-        
-        //        NavigationView{
-        
         VStack{
-            
             Spacer()
             if isShow {
                 HStack(spacing: 15){
@@ -96,7 +87,7 @@ struct CarouselView : View {
             
             AdBannerView()
         }
-        .navigationBarTitle(title)
+        .navigationBarTitle(navBarTitle)
         .background(Color.black.opacity(0.07).edgesIgnoringSafeArea(.bottom))
         .animation(.spring())
         .onAppear {
@@ -105,8 +96,6 @@ struct CarouselView : View {
             self.data[0].show = true
             self.isShow = true
         }
-        
-        //        }
     }
     
     func updateHeight(value : Int){
@@ -123,7 +112,7 @@ struct CarouselView : View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselView(title: "Test")
+        CarouselView(navBarTitle: "Test", data: dataFirstExersise)
     }
 }
 
