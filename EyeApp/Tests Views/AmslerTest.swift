@@ -13,31 +13,39 @@ struct AmslerTest: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
-                .edgesIgnoringSafeArea(.all)
-            GeometryReader{ geometry in
+//            Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
+//                .edgesIgnoringSafeArea(.all)
+//            GeometryReader{ geometry in
                 VStack {
-                    Spacer()
+//                    Spacer()
                     Text("Тест Амслера")
                         .font(.largeTitle)
-                        .foregroundColor(.black)
+//                        .foregroundColor(.black)
                     Image("AmslerGrid")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding(.horizontal)
-                    Text("""
-    1. Наденьте очки или контактные линзы (если вы их обычно носите).
-    2. Расположите сетку перед собой на расстоянии 20-30 см.
-    3. Прикройте 1 глаз.
-    4. Сосредоточив взгляд на центральной точке, оцените остальную часть сетки.
-        - Все ли линии сетки прямые и ровные?
-        - Все ли квадраты решетки одинакового размера?
-        - Нет ли зон, где рисунок искажается, затуманивается, обесцвечивается?
-    """)
-                        .fontWeight(.regular)
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal)
+                    Spacer()
+                    ScrollView {
+                        Text("""
+        1. Наденьте очки или контактные линзы (если вы их обычно носите).
+        2. Расположите сетку перед собой на расстоянии 20-30 см.
+        3. Прикройте 1 глаз.
+        4. Сосредоточив взгляд на центральной точке, оцените остальную часть сетки.
+            - Все ли линии сетки прямые и ровные?
+            - Все ли квадраты решетки одинакового размера?
+            - Нет ли зон, где рисунок искажается, затуманивается, обесцвечивается?
+           kjh
+              ljh
+              lj
+               ljk
+                    lkj
+        """)
+                            .fontWeight(.regular)
+//                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .padding(.horizontal)
+                    }
                         
                     
                     //                    .frame(width: geometry.size.width)
@@ -50,8 +58,10 @@ struct AmslerTest: View {
                         AmslerModalView()
                     }
                 }
-            }
+//            }
         }
+        .preferredColorScheme(.dark)
+    .navigationBarHidden(true)
     }
 }
 
