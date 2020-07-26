@@ -13,8 +13,10 @@ struct Exercises: View {
         VStack {
             ScrollView{
                 ForEach(ex) { exData in
-                    NavigationLink(destination: CarouselView(navBarTitle: exData.name, data: exData.cards)) {
-                        ButtonView(title: exData.name)
+                    if exData.isShow {
+                        NavigationLink(destination: CarouselView(navBarTitle: exData.name, data: exData.cards)) {
+                            ButtonView(title: exData.name)
+                        }
                     }
                 }
             }

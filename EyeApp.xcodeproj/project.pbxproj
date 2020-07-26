@@ -126,7 +126,6 @@
 				E221CE4F24A750DA00EE6BE3 /* MotherView.swift */,
 				E221CE5524AA7F6000EE6BE3 /* Tests.swift */,
 				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
-				E28B3DD824C6E0DA00294BD6 /* CarouselView.swift */,
 				E258281C24CC5BF500A7D652 /* DataForExercises.swift */,
 			);
 			path = EyeApp;
@@ -154,6 +153,7 @@
 		E29FBE9F24ACB8AF00AD2814 /* HelpViews */ = {
 			isa = PBXGroup;
 			children = (
+				E28B3DD824C6E0DA00294BD6 /* CarouselView.swift */,
 				E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */,
 				E29FBEA024ACB8C900AD2814 /* RadioButtons.swift */,
 				E29FBEA224AF10A800AD2814 /* Cards.swift */,

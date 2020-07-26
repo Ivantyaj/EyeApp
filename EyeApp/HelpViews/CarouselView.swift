@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct CarouselView : View {
     
@@ -19,7 +20,7 @@ struct CarouselView : View {
     @State var op : CGFloat = 0
     @State private var isShow = false
     
-    
+    @State private var interstital : GADInterstitial!
     
     var body : some View{
         VStack{
@@ -27,7 +28,7 @@ struct CarouselView : View {
             if isShow {
                 HStack(spacing: 15){
                     
-                    ForEach(data){i in
+                    ForEach(data) {i in
                         
                         CardView(data: i)
                             .offset(x: self.x)
@@ -95,6 +96,17 @@ struct CarouselView : View {
             
             self.data[0].show = true
             self.isShow = true
+            
+            //Init interstital ads
+            self.interstital = GADInterstitial(adUnitID: "ca-app-pub-7080651716382146/2705283372")
+            let req = GADRequest()
+            self.interstital.load(req)
+        }
+        .onDisappear {
+            if self.interstital.isReady{
+                let root = UIApplication.shared.windows.first?.rootViewController
+                self.interstital.present(fromRootViewController: root!)
+            }
         }
     }
     
@@ -128,13 +140,13 @@ struct CardView : View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Spacer()
+            
             Text(data.name)
                 .fontWeight(.bold)
                 .padding(.vertical, 13)
                 .padding(.leading)
                 .frame(height: 100)
                 .foregroundColor(.black)
-            
         }
         .frame(width: UIScreen.main.bounds.width - 30, height: data.show ? 500 : 440)
         .background(Color.white)

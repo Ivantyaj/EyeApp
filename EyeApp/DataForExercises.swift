@@ -18,14 +18,16 @@ var dataFirstExersise = [
 ]
 
 var ex = [
-        ExercisesData(id: 0, name: "Гимнастика", cards: dataFirstExersise),
+          ExercisesData(id: 0, name: "Гимнастика", cards: dataFirstExersise),
           ExercisesData(id: 1, name: "Расслабление", cards: dataFirstExersise),
-          ExercisesData(id: 2, name: "Упражнение 3", cards: dataFirstExersise)
+          ExercisesData(id: 2, name: "Упражнение 3", cards: dataFirstExersise, isShow: false),
+          ExercisesData(id: 3, name: "Упражнение 4", cards: dataFirstExersise),
 ]
 
 struct ExercisesData : Identifiable {
     var id : Int
     var name : String
     var cards : [TaskCard]
+    var isShow = true
 }
 
