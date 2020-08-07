@@ -23,6 +23,7 @@
 		E221CE6124ABA89000EE6BE3 /* AmslerModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */; };
 		E258281D24CC5BF500A7D652 /* DataForExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258281C24CC5BF500A7D652 /* DataForExercises.swift */; };
 		E28B3DD924C6E0DA00294BD6 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B3DD824C6E0DA00294BD6 /* CarouselView.swift */; };
+		E28C04EB24CDD8E30019F45D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E28C04EA24CDD8E30019F45D /* GoogleService-Info.plist */; };
 		E29FBE9A24ABB8DD00AD2814 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */; };
 		E29FBE9C24AC90EB00AD2814 /* DaltonismTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBE9B24AC90EB00AD2814 /* DaltonismTest.swift */; };
 		E29FBE9E24ACB1A100AD2814 /* DaltonismCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBE9D24ACB1A100AD2814 /* DaltonismCard.swift */; };
@@ -53,6 +54,7 @@
 		E221CE6024ABA88F00EE6BE3 /* AmslerModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmslerModalView.swift; sourceTree = "<group>"; };
 		E258281C24CC5BF500A7D652 /* DataForExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForExercises.swift; sourceTree = "<group>"; };
 		E28B3DD824C6E0DA00294BD6 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		E28C04EA24CDD8E30019F45D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E29FBE9924ABB8DD00AD2814 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
 		E29FBE9B24AC90EB00AD2814 /* DaltonismTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaltonismTest.swift; sourceTree = "<group>"; };
 		E29FBE9D24ACB1A100AD2814 /* DaltonismCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaltonismCard.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		E221CE1024A485F600EE6BE3 /* EyeApp */ = {
 			isa = PBXGroup;
 			children = (
+				E28C04EA24CDD8E30019F45D /* GoogleService-Info.plist */,
 				E29FBE9F24ACB8AF00AD2814 /* HelpViews */,
 				E221CE5A24AB6AFF00EE6BE3 /* Tests Views */,
 				E221CE1124A485F600EE6BE3 /* AppDelegate.swift */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E221CE1E24A485FB00EE6BE3 /* LaunchScreen.storyboard in Resources */,
+				E28C04EB24CDD8E30019F45D /* GoogleService-Info.plist in Resources */,
 				E221CE1B24A485FB00EE6BE3 /* Preview Assets.xcassets in Resources */,
 				E221CE1824A485FB00EE6BE3 /* Assets.xcassets in Resources */,
 			);

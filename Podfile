@@ -6,6 +6,9 @@ target 'EyeApp' do
   use_frameworks!
 
 pod 'Google-Mobile-Ads-SDK'
+pod 'Firebase/Analytics'
+pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
 
   # Pods for EyeApp
 

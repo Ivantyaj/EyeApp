@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct Exercises: View {
+    
+    @ObservedObject private var viewModel = ExViewModel()
+    
     var body: some View {
         VStack {
             ScrollView{
-                ForEach(ex) { exData in
+                ForEach(viewModel.exData) { exData in
                     if exData.isShow {
                         NavigationLink(destination: CarouselView(navBarTitle: exData.name, data: exData.cards)) {
                             ButtonView(title: exData.name)
@@ -23,6 +26,14 @@ struct Exercises: View {
             AdBannerView()
         }
         .navigationBarTitle("Упражнения")
+        .onAppear(){
+            self.viewModel.fetchData()
+//            self.viewModel.completeList(completion: { (status, tasks) in
+//                print(status)
+//            })
+//            self.viewModel.getData()
+            
+        }
     }
 }
 

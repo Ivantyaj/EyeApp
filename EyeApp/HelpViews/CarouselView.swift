@@ -8,6 +8,7 @@
 
 import SwiftUI
 import GoogleMobileAds
+import FirebaseFirestoreSwift
 
 struct CarouselView : View {
     
@@ -154,9 +155,9 @@ struct CardView : View {
     }
 }
 
-struct TaskCard : Identifiable {
+struct TaskCard : Identifiable, Codable {
     
-    var id : Int
+    @DocumentID var id : String? = UUID().uuidString
     var img : String
     var name : String
     var show : Bool
