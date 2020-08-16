@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMobileAds
 import Firebase
+import FirebaseCore
 
 
 @UIApplicationMain

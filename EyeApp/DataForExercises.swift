@@ -10,6 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+var isGetExData = false
 
 var dataFirstExersise = [
     
@@ -20,95 +21,116 @@ var dataFirstExersise = [
 ]
 
 var ex = [
-          ExercisesData(name: "Гимнастика", cards: dataFirstExersise),
-          ExercisesData(name: "Расслабление", cards: dataFirstExersise),
-          ExercisesData(name: "Упражнение 3", cards: dataFirstExersise, isShow: true),
-          ExercisesData(name: "Упражнение 4", cards: dataFirstExersise),
-          ExercisesData(name: "Упражнение 5", cards: dataFirstExersise),
+    ExercisesData(name: "Гимнастика", cards: dataFirstExersise),
+    ExercisesData(name: "Расслабление", cards: dataFirstExersise),
+    ExercisesData(name: "Упражнение 3", cards: dataFirstExersise, isShow: true),
+    ExercisesData(name: "Упражнение 4", cards: dataFirstExersise),
+    ExercisesData(name: "Упражнение 5", cards: dataFirstExersise),
 ]
 
 struct ExercisesData : Identifiable {
     @DocumentID var id : String? = UUID().uuidString
-//    var id : Int = UUID().hashValue
+    //    var id : Int = UUID().hashValue
     var name : String
     var cards : [TaskCard] = []
+    
     var isShow = true
+    
+    var cardsId : [String] = []
+}
+
+class ExViewModel: ObservableObject{
+    @Published var exData : [ExercisesData] = []
+    @Published var taskData : [TaskCard] = []
     
     private var db = Firestore.firestore()
     
-    init(name: String, cards: [TaskCard], isShow: Bool = true) {
-        self.name = name
-        self.cards = cards
-        self.isShow = true
-    }
-    
-    init(id: String, name: String, isShow: Bool) {
-        self.id = id
-        self.name = name
-        self.isShow = isShow
+    func fetchData() {
+        isGetExData = false
+        let rootCollection = db.collection("exercises")
         
-        var cardsS : [TaskCard] = []
-        db.collection("exercises").document(id).collection("cards").getDocuments() { (querySnapshot, err) in
+        var ex : [ExercisesData] = []
+        
+        rootCollection.getDocuments() { (querySnapshot, err) in
+            
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) =INNER> \(document.data())")
+                    print("\(document.documentID) => \(document.data())")
                     
-                    let img = document.data()["img"] as! String
-                    let name = document.data()["name"] as! String
-                    let show =  document.data()["show"] as! Bool
+                    let name = document.data()["name"] as? String ?? ""
+                    let isShow = document.data()["isShow"] as? Bool ?? false
+                    let cardsId = document.data()["cardsId"] as? [String] ?? []
                     
-                    cardsS.append(TaskCard(id: document.documentID, img: img, name: name, show: show))
+                    ex.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
                     
+                }
+                isGetExData = true
+                DispatchQueue.main.async {
+                    self.exData = ex
+                    print(ex)
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    func fetchDataPop2(){
+        Firestore.firestore().collection("exercises")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                for document in documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    let name = document.data()["name"] as? String ?? ""
+                    let isShow = document.data()["isShow"] as? Bool ?? false
+                    let cardsId = document.data()["cardsId"] as? [String] ?? []
+                    
+                    DispatchQueue.main.async {
+                        self.exData.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
+                    }
+                    
+                    
+                    print("I was HERERERERERERE")
+                    print(self.exData)
+                    self.objectWillChange.send()
+                }
+                
+        }
+    }
+    
+    
+    func fetchDataTaskCards(taskIds : [String]) {
+        let rootCollection = db.collection("taskCards")
+        
+        for id in taskIds {
+            rootCollection.document(id).getDocument { (document, error) in
+                if let document = document, document.exists {
+                    
+                    let data = document.data()!
+                    
+                    let img = data["img"] as! String
+                    
+                    let name = data["name"] as! String
+                    let show = data["show"] as! Bool
+                    
+                    print("Document data: \(data)")
+                    
+                    self.taskData.append(TaskCard(id: document.documentID, img: img, name: name, show: show))
+                    
+                    
+                } else {
+                    print("Document does not exist")
                 }
             }
         }
-        
-        self.cards = cardsS
-
-    }
-}
-
-class ExViewModel: ObservableObject{
-    @Published var exData = [ExercisesData]()
-    
-    private var db = Firestore.firestore()
-    
-//    func completeList(completion: @escaping (Bool, [ExercisesData]) -> ()){
-//        let tasks = [ExercisesData]()
-//        db.collection("exercises ").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//                completion(false, tasks)
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//                completion(true, tasks)
-//            }
-//        }
-//    }
-    
- 
-    
-    func fetchData() {
-        let rootCollection = db.collection("exercises")
-//
-//        db.collection("exercises").document("ybFpuTH3hiTUaivqDSZy").collection("cards").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//            }
-//        }
-        
-        
-//        var docIds : [String] = []
-        
-        var ex : [ExercisesData] = []
         
         
         rootCollection.getDocuments() { (querySnapshot, err) in
@@ -119,31 +141,12 @@ class ExViewModel: ObservableObject{
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     
-//                    docIds.append(document.documentID)
                     
                     let name = document.data()["name"] as! String
                     let isShow = document.data()["isShow"] as! Bool
+                    let cardsId = document.data()["cardsId"] as! [String]
                     
-//                    var task : [TaskCard] = []
-//
-//                    rootCollection.document(document.documentID).collection("cards").getDocuments() { (querySnapshot, err) in
-//                        if let err = err {
-//                            print("Error getting documents: \(err)")
-//                        } else {
-//                            for document in querySnapshot!.documents {
-//                                print("\(document.documentID) =INNER> \(document.data())")
-//
-//                                let img = document.data()["img"] as! String
-//                                let name = document.data()["name"] as! String
-//                                let show =  document.data()["show"] as! Bool
-//
-//                                task.append(TaskCard(id: document.documentID, img: img, name: name, show: show))
-//
-//                            }
-//                        }
-//                    }
-                    
-                    ex.append(ExercisesData(id: document.documentID, name: name, isShow: isShow))
+                    ex.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
                     
                 }
                 
@@ -151,139 +154,8 @@ class ExViewModel: ObservableObject{
             }
         }
         
-//        for id in docIds {
-//
-//            db.collection("exercises").document(id).collection("cards").getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => ID \(document.data())")
-//                    }
-//                }
-//            }
-//
-//        }
-        
-
-        
-//        db.collection("taskCards").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//            }
-//        }
-        
-//        db.collection("exercises").addSnapshotListener { (querySnapshot, error) in
-//            
-//            if let error = error {
-//                print("Error: \(error)")
-//                return
-//            }
-////            guard let snapshot = querySnapshot else {
-////                  print("Error fetching snapshots: \(error!)")
-////                  return
-////              }
-//            
-//            guard let documents = querySnapshot?.documents else {
-//                print("No documents")
-//                return
-//            }
-//            
-////            self.exData = documents.compactMap({ (queryDocumentSnapshot) -> ExercisesData? in
-////                return try? queryDocumentSnapshot.data(as: ExercisesData.self)
-////            })
-//    
-//            
-//            
-//            self.exData = documents.map { (queryDocumentSnapshot) -> ExercisesData in
-//            
-//                
-//                let data = queryDocumentSnapshot.data()
-//                
-//                print("\(queryDocumentSnapshot.documentID) => \(queryDocumentSnapshot.data())")
-//
-//                let name = data["name"] as? String ?? ""
-//                let isShow = data["isShow"] as? Bool ?? false
-////                let cards = queryDocumentSnapshot.docu
-//                
-//
-////                let people = queryDocumentSnapshot.data()["cards"]! as! [TaskCard]
-////                print(people[0])
-//                
-//
-//
-//                
-//                if let contentModels = data["cards"] as? [AnyObject] as? [TaskCard] {
-//                    for contentModel in contentModels {
-//                        print(contentModel)
-//                    }
-//                }
-//                
-////                let cards = data["cards"] as? [TaskCard]
-////                FIX IT
-//                let exercise = ExercisesData(name: name, cards: cards as! [TaskCard], isShow: isShow)
-//
-//                return exercise
-//            }
-//            
-//        }
     }
     
-    
-    func getData() {
-        let rootCollection = db.collection("exercises")
-
-        var data = [Any]()
-
-        rootCollection.getDocuments() {
-
-            (querySnapshot, error) in
-
-            if error != nil {
-                print("Error when getting data \(String(describing: error?.localizedDescription))")
-            } else {
-                guard let topSnapshot = querySnapshot?.documents else { return }
-                for category in topSnapshot {
-                    rootCollection.document(category.documentID).collection("cards").getDocuments() {
-                        (snapshot, err) in
-
-                        guard let snapshot = snapshot?.documents else { return }
-
-                        var questions = [TaskCard]()
-
-                        for document in snapshot {
-                            let title = document.data()["img"] as! String
-                            let details = document.data()["name"] as! String
-                            let article = document.data()["show"] as! Bool
-
-                            let newQuestion = TaskCard(img: title, name: details, show: article)
-
-
-                            questions.append(newQuestion)
-
-                        }
-                        let categoryTitle = category.data()["name"] as! String
-                        let collectionID = category.data()["isShow"] as! Bool
-
-                        let newCategory = ExercisesData(name: categoryTitle, cards: questions, isShow: collectionID)
-    
-                        data.append(newCategory)
-
-                        //Return data on completion
-                        
-                    }
-                }
-                self.exData = data as! [ExercisesData]
-            }
-        }
-        
-        
-    }
-
 }
 
 

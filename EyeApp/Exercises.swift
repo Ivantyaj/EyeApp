@@ -7,18 +7,26 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct Exercises: View {
     
-    @ObservedObject private var viewModel = ExViewModel()
+    @ObservedObject var viewModel = ExViewModel()
+    
+//    @State private var isGetData = false
+    
+    @State private var exTest : [ExercisesData] = []
     
     var body: some View {
         VStack {
-            ScrollView{
-                ForEach(viewModel.exData) { exData in
-                    if exData.isShow {
-                        NavigationLink(destination: CarouselView(navBarTitle: exData.name, data: exData.cards)) {
-                            ButtonView(title: exData.name)
+            if !exTest.isEmpty{
+                ScrollView{
+                    ForEach(exTest) { exData in
+                        if exData.isShow {
+                            NavigationLink(destination: CarouselView(navBarTitle: exData.name, dataIds: exData.cardsId)) {
+                                ButtonView(title: exData.name)
+                            }
                         }
                     }
                 }
@@ -27,13 +35,36 @@ struct Exercises: View {
         }
         .navigationBarTitle("Упражнения")
         .onAppear(){
-            self.viewModel.fetchData()
-//            self.viewModel.completeList(completion: { (status, tasks) in
-//                print(status)
-//            })
-//            self.viewModel.getData()
+//            self.viewModel.fetchData()
+            
+//            self.viewModel.fetchDataPop2()
+            self.exTest = []
+            self.fetchData()
+            
             
         }
+    }
+    
+    func fetchData() {
+        Firestore.firestore().collection("exercises")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+
+                for document in documents {
+                    print("\(document.documentID) => \(document.data())")
+
+                    let name = document.data()["name"] as? String ?? ""
+                    let isShow = document.data()["isShow"] as? Bool ?? false
+                    let cardsId = document.data()["cardsId"] as? [String] ?? []
+
+                    self.exTest.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
+
+                }
+        }
+        
     }
 }
 

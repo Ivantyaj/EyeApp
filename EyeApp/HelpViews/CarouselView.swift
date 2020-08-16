@@ -9,11 +9,13 @@
 import SwiftUI
 import GoogleMobileAds
 import FirebaseFirestoreSwift
+import Firebase
+import FirebaseFirestore
 
 struct CarouselView : View {
     
     @State var navBarTitle : String = ""
-    @State var data : [TaskCard]
+    @State var dataIds : [String]
     
     @State var x : CGFloat = 0
     @State var count : CGFloat = 0
@@ -22,6 +24,9 @@ struct CarouselView : View {
     @State private var isShow = false
     
     @State private var interstital : GADInterstitial!
+    @State private var dataCard : [TaskCard] = []
+    
+//    @ObservedObject private var viewModel = ExViewModel()
     
     var body : some View{
         VStack{
@@ -29,7 +34,7 @@ struct CarouselView : View {
             if isShow {
                 HStack(spacing: 15){
                     
-                    ForEach(data) {i in
+                    ForEach(dataCard) {i in
                         
                         CardView(data: i)
                             .offset(x: self.x)
@@ -67,7 +72,7 @@ struct CarouselView : View {
                                     else{
                                         
                                         
-                                        if -value.translation.width > ((self.screen - 80) / 2) && Int(self.count) !=  (self.data.count - 1){
+                                        if -value.translation.width > ((self.screen - 80) / 2) && Int(self.count) !=  (self.self.dataCard.count - 1){
                                             
                                             self.count += 1
                                             self.updateHeight(value: Int(self.count))
@@ -93,39 +98,113 @@ struct CarouselView : View {
         .background(Color.black.opacity(0.07).edgesIgnoringSafeArea(.bottom))
         .animation(.spring())
         .onAppear {
-            self.op = ((self.screen + 15) * CGFloat(self.data.count / 2)) - (self.data.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
             
-            self.data[0].show = true
+            self.fetchDataTaskCards(taskIds: self.dataIds)
+            
+//            self.viewModel.fetchDataTaskCards(taskIds: self.dataIds)
+            
+            self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
+
+
+//            self.viewModel.taskData[0].show = true
+
+            if(!self.dataCard.isEmpty){
+                self.dataCard[0].show = true
+            }
+            
             self.isShow = true
             
             //Init interstital ads
             self.interstital = GADInterstitial(adUnitID: "ca-app-pub-7080651716382146/2705283372")
             let req = GADRequest()
             self.interstital.load(req)
+            
+            
+        
         }
         .onDisappear {
-            if self.interstital.isReady{
-                let root = UIApplication.shared.windows.first?.rootViewController
-                self.interstital.present(fromRootViewController: root!)
-            }
+//            if self.interstital.isReady{
+//                let root = UIApplication.shared.windows.first?.rootViewController
+//                self.interstital.present(fromRootViewController: root!)
+//            }
         }
     }
     
     func updateHeight(value : Int){
         
         
-        for i in 0..<data.count{
+        for i in 0..<self.dataCard.count{
             
-            data[i].show = false
+            self.dataCard[i].show = false
         }
         
-        data[value].show = true
+        self.dataCard[value].show = true
     }
+    
+    func fetchDataTaskCards(taskIds : [String]) {
+        let rootCollection = Firestore.firestore().collection("taskCards")
+        
+        for id in taskIds {
+            rootCollection.document(id).getDocument { (document, error) in
+                if let document = document, document.exists {
+                    
+                    let data = document.data()!
+                    
+                    let img = data["img"] as! String
+                    
+                    let name = data["name"] as! String
+                    let show = data["show"] as! Bool
+                    
+                    print("Document data: \(data)")
+                    
+                    self.dataCard.append(TaskCard(id: document.documentID, img: img, name: name, show: show))
+                    
+                    
+                } else {
+                    print("Document does not exist")
+                }
+                            self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
+                            
+                            
+                //            self.viewModel.taskData[0].show = true
+                            
+                            if(!self.dataCard.isEmpty){
+                                self.dataCard[0].show = true
+                            }
+            }
+        }
+        
+        
+//        rootCollection.getDocuments() { (querySnapshot, err) in
+//            
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                    
+//                    
+//                    let name = document.data()["name"] as! String
+//                    let isShow = document.data()["isShow"] as! Bool
+//                    let cardsId = document.data()["cardsId"] as! [String]
+//                    
+//                    ex.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
+//                    
+//                }
+//                
+//                print(ex)
+//            }
+//        }
+        
+    }
+
+    
+    
 }
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselView(navBarTitle: "Test", data: dataFirstExersise)
+        CarouselView(navBarTitle: "Test", dataIds: ["EE985mcG6NuX6KdU6Wol","EE985mcG6NuX6KdU6Wol"])
     }
 }
 

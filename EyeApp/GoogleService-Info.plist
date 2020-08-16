@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>eyeapp-c5076.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:163229644760:ios:eddc204d8c32f0f9cea4ad</string>
 	<key>DATABASE_URL</key>
 	<string>https://eyeapp-c5076.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-7080651716382146~8017126281</string>
 </dict>
 </plist>
