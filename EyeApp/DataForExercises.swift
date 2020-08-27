@@ -164,11 +164,8 @@ class FetchingData: ObservableObject {
     
     @Published var isFetchData = false
     
-//    init() {
-//        fetchExercisesButtonData()
-//    }
     
-    func fetchExercisesButtonData(){
+    func fetchExercisesButtonData1(){
         Firestore.firestore().collection("exercises")
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
@@ -185,6 +182,41 @@ class FetchingData: ObservableObject {
                     
                     exTest.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
                     
+                    self.isFetchData = true
+                    
+                }
+        }
+        
+    }
+    
+    func fetchExercisesButtonData(){
+        Firestore.firestore().collection("exercisesWithTask")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                for document in documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    let name = document.data()["name"] as? String ?? ""
+                    let isShow = document.data()["isShow"] as? Bool ?? false
+                    
+                    let cards = document.data()["cards"] as? [[String:Any]]
+                    
+                    var taskCards : [TaskCard] = []
+                    
+                    for card in cards! {
+                        let nameT = card["name"] as? String ?? ""
+                        let imgT  = card["img"] as? String ?? ""
+                        let showT = card["show"] as? Bool ?? false
+                        
+                        taskCards.append(TaskCard(img: nameT, name: imgT, show: showT))
+                    }
+                    
+                    exTest.append(ExercisesData(id: document.documentID, name: name, cards: taskCards, isShow: isShow))
+                    print(exTest)
                     self.isFetchData = true
                     
                 }
