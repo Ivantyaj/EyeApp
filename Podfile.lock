@@ -325,12 +325,14 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.9)
+  - URLImage (0.9.19)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - Google-Mobile-Ads-SDK
+  - URLImage
 
 SPEC REPOS:
   trunk:
@@ -352,6 +354,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - URLImage
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -372,7 +375,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  URLImage: 107320dff147321cceb201af24e8a154f24e6aed
 
-PODFILE CHECKSUM: 9ed64fec2c46f3036a4eeeb3b9827f0f42c7c8ca
+PODFILE CHECKSUM: adbd0da8511f042f303b7d9c5ffbaf1872bafb7a
 
 COCOAPODS: 1.9.3

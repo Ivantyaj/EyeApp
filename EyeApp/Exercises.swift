@@ -16,7 +16,7 @@ struct Exercises: View {
     
 //    @State private var isGetData = false
     
-    @State private var exTest : [ExercisesData] = []
+//    @State var exTest : [ExercisesData]
     
     var body: some View {
         VStack {
@@ -38,34 +38,34 @@ struct Exercises: View {
 //            self.viewModel.fetchData()
             
 //            self.viewModel.fetchDataPop2()
-            self.exTest = []
-            self.fetchData()
+//            self.exTest = []
+//            self.fetchData()
             
             
         }
     }
     
-    func fetchData() {
-        Firestore.firestore().collection("exercises")
-            .addSnapshotListener { querySnapshot, error in
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching document: \(error!)")
-                    return
-                }
-
-                for document in documents {
-                    print("\(document.documentID) => \(document.data())")
-
-                    let name = document.data()["name"] as? String ?? ""
-                    let isShow = document.data()["isShow"] as? Bool ?? false
-                    let cardsId = document.data()["cardsId"] as? [String] ?? []
-
-                    self.exTest.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
-
-                }
-        }
-        
-    }
+//    func fetchData() {
+//        Firestore.firestore().collection("exercises")
+//            .addSnapshotListener { querySnapshot, error in
+//                guard let documents = querySnapshot?.documents else {
+//                    print("Error fetching document: \(error!)")
+//                    return
+//                }
+//
+//                for document in documents {
+//                    print("\(document.documentID) => \(document.data())")
+//
+//                    let name = document.data()["name"] as? String ?? ""
+//                    let isShow = document.data()["isShow"] as? Bool ?? false
+//                    let cardsId = document.data()["cardsId"] as? [String] ?? []
+//
+//                    self.exTest.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
+//
+//                }
+//        }
+//
+//    }
 }
 
 struct Exercises_Previews: PreviewProvider {

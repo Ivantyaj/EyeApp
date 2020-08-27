@@ -158,4 +158,71 @@ class ExViewModel: ObservableObject{
     
 }
 
+var exTest : [ExercisesData] = []
 
+class FetchingData: ObservableObject {
+    
+    @Published var isFetchData = false
+    
+//    init() {
+//        fetchExercisesButtonData()
+//    }
+    
+    func fetchExercisesButtonData(){
+        Firestore.firestore().collection("exercises")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                for document in documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    let name = document.data()["name"] as? String ?? ""
+                    let isShow = document.data()["isShow"] as? Bool ?? false
+                    let cardsId = document.data()["cardsId"] as? [String] ?? []
+                    
+                    exTest.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
+                    
+                    self.isFetchData = true
+                    
+                }
+        }
+        
+    }
+    
+}
+//func fetchDataTaskCards(taskIds : [String]) {
+//    let rootCollection = Firestore.firestore().collection("taskCards")
+//    
+//    for id in taskIds {
+//        rootCollection.document(id).getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                
+//                let data = document.data()!
+//                
+//                let img = data["img"] as! String
+//                
+//                let name = data["name"] as! String
+//                let show = data["show"] as! Bool
+//                
+//                print("Document data: \(data)")
+//                
+//                self.dataCard.append(TaskCard(id: document.documentID, img: img, name: name, show: show))
+//                
+//                
+//            } else {
+//                print("Document does not exist")
+//            }
+//            self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
+//            
+//            
+//            //            self.viewModel.taskData[0].show = true
+//            
+//            if(!self.dataCard.isEmpty){
+//                self.dataCard[0].show = false
+//            }
+//        }
+//    }
+//}

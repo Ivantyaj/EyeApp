@@ -11,6 +11,7 @@ import GoogleMobileAds
 import FirebaseFirestoreSwift
 import Firebase
 import FirebaseFirestore
+import URLImage
 
 struct CarouselView : View {
     
@@ -26,7 +27,7 @@ struct CarouselView : View {
     @State private var interstital : GADInterstitial!
     @State private var dataCard : [TaskCard] = []
     
-//    @ObservedObject private var viewModel = ExViewModel()
+    //    @ObservedObject private var viewModel = ExViewModel()
     
     var body : some View{
         VStack{
@@ -101,14 +102,15 @@ struct CarouselView : View {
             
             self.fetchDataTaskCards(taskIds: self.dataIds)
             
-//            self.viewModel.fetchDataTaskCards(taskIds: self.dataIds)
+            //            self.viewModel.fetchDataTaskCards(taskIds: self.dataIds)
             
-            self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
 
-
-//            self.viewModel.taskData[0].show = true
-
+            
+            
+            //            self.viewModel.taskData[0].show = true
+            
             if(!self.dataCard.isEmpty){
+                self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
                 self.dataCard[0].show = true
             }
             
@@ -119,14 +121,12 @@ struct CarouselView : View {
             let req = GADRequest()
             self.interstital.load(req)
             
-            
-        
         }
         .onDisappear {
-//            if self.interstital.isReady{
-//                let root = UIApplication.shared.windows.first?.rootViewController
-//                self.interstital.present(fromRootViewController: root!)
-//            }
+//                        if self.interstital.isReady{
+//                            let root = UIApplication.shared.windows.first?.rootViewController
+//                            self.interstital.present(fromRootViewController: root!)
+//                        }
         }
     }
     
@@ -163,41 +163,18 @@ struct CarouselView : View {
                 } else {
                     print("Document does not exist")
                 }
-                            self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
-                            
-                            
+                self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
+                
+                
                 //            self.viewModel.taskData[0].show = true
-                            
-                            if(!self.dataCard.isEmpty){
-                                self.dataCard[0].show = true
-                            }
+                
+                if(!self.dataCard.isEmpty){
+                    self.dataCard[0].show = false
+                }
             }
         }
-        
-        
-//        rootCollection.getDocuments() { (querySnapshot, err) in
-//            
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                    
-//                    
-//                    let name = document.data()["name"] as! String
-//                    let isShow = document.data()["isShow"] as! Bool
-//                    let cardsId = document.data()["cardsId"] as! [String]
-//                    
-//                    ex.append(ExercisesData(id: document.documentID, name: name, isShow: isShow, cardsId: cardsId))
-//                    
-//                }
-//                
-//                print(ex)
-//            }
-//        }
-        
     }
-
+    
     
     
 }
@@ -210,15 +187,37 @@ struct Carousel_Previews: PreviewProvider {
 
 struct CardView : View {
     
-    var data : TaskCard
+    @State var data : TaskCard
     
     var body : some View{
         
         VStack(alignment: .leading, spacing: 0){
             Spacer()
-            Image(data.img)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            URLImage(URL(string: data.img)!,
+                     placeholder: {
+                        ProgressView($0) { progress in
+                            ZStack {
+                                if progress > 0.0 {
+                                    CircleProgressView(progress).stroke(lineWidth: 8.0)
+                                }
+                                else {
+                                    CircleActivityView().stroke(lineWidth: 50.0)
+                                }
+                            }
+                        }
+                        .frame(width: 50.0, height: 50.0)
+            },
+                     content: {
+                        $0.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+//                            .clipShape(RoundedRectangle(cornerRadius: 5))
+//                            .padding(.all, 40.0)
+//                            .shadow(radius: 10.0)
+            })
+//            Image(data.img)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
             Spacer()
             
             Text(data.name)

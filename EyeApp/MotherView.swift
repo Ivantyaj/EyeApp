@@ -11,6 +11,7 @@ import SwiftUI
 struct MotherView: View {
     
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var fetchData: FetchingData
     
     var body: some View {
         VStack{
@@ -19,13 +20,21 @@ struct MotherView: View {
             } else if viewRouter.currentPage == "homeView" {
                 HomeView()
             }
+            
+            if !fetchData.isFetchData {
+                LoadingView()
+            }
         }
         .preferredColorScheme(.dark)
+        .onAppear(){
+            self.fetchData.fetchExercisesButtonData()
+        }
     }
 }
 
 struct MotherView_Previews: PreviewProvider {
     static var previews: some View {
         MotherView().environmentObject(ViewRouter())
+        .environmentObject(FetchingData())
     }
 }

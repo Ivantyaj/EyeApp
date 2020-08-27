@@ -9,6 +9,7 @@ pod 'Google-Mobile-Ads-SDK'
 pod 'Firebase/Analytics'
 pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
+pod 'URLImage'
 
   # Pods for EyeApp
 
