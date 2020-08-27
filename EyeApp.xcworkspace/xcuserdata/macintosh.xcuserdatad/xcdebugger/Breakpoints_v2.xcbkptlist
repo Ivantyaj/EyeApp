@@ -333,8 +333,8 @@
             filePath = "EyeApp/HelpViews/CarouselView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "updateHeight(value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -365,8 +365,8 @@
             filePath = "EyeApp/HelpViews/CarouselView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "fetchDataTaskCards(taskIds:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -381,8 +381,8 @@
             filePath = "EyeApp/HelpViews/CarouselView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "fetchDataTaskCards(taskIds:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -413,8 +413,8 @@
             filePath = "EyeApp/MotherView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -433,6 +433,70 @@
             endingLineNumber = "195"
             landmarkName = "fetchExercisesButtonData()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A05E6CD8-B1FC-4FA6-BE37-F54831312F04"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EyeApp/Exercises.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A05E6CD8-B1FC-4FA6-BE37-F54831312F04 - a846db42a3faeb04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (EyeApp.ExercisesData) -&gt; Swift.Optional&lt;SwiftUI.NavigationLink&lt;EyeApp.ButtonView, EyeApp.CarouselView&gt;&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;EyeApp.ExercisesData&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;EyeApp.ButtonView, EyeApp.CarouselView&gt;&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.ScrollView&lt;SwiftUI.ForEach&lt;Swift.Array&lt;EyeApp.ExercisesData&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;EyeApp.ButtonView, EyeApp.CarouselView&gt;&gt;&gt;&gt;&gt;, EyeApp.AdBannerView)&gt; in EyeApp.Exercises.body.getter : some"
+                  moduleName = "EyeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintosh/Desktop/XcodeTest%20/EyeApp/EyeApp/Exercises.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "482">
+               </Location>
+               <Location
+                  uuid = "A05E6CD8-B1FC-4FA6-BE37-F54831312F04 - 4a970dca109d67b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; EyeApp.ButtonView in closure #1 (EyeApp.ExercisesData) -&gt; Swift.Optional&lt;SwiftUI.NavigationLink&lt;EyeApp.ButtonView, EyeApp.CarouselView&gt;&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;EyeApp.ExercisesData&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;EyeApp.ButtonView, EyeApp.CarouselView&gt;&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.ScrollView&lt;SwiftUI.ForEach&lt;Swift.Array&lt;EyeApp.ExercisesData&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;EyeApp.ButtonView, EyeApp.CarouselView&gt;&gt;&gt;&gt;&gt;, EyeApp.AdBannerView)&gt; in EyeApp.Exercises.body.getter : some"
+                  moduleName = "EyeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintosh/Desktop/XcodeTest%20/EyeApp/EyeApp/Exercises.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4076F02E-268D-4753-BE8B-F41CF751B205"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EyeApp/HelpViews/CarouselView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

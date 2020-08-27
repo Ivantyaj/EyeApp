@@ -14,14 +14,17 @@ struct MotherView: View {
     @EnvironmentObject var fetchData: FetchingData
     
     var body: some View {
-        VStack{
-            if viewRouter.currentPage == "onboardingView" {
-                OnboardingView()
-            } else if viewRouter.currentPage == "homeView" {
-                HomeView()
-            }
-            
-            if !fetchData.isFetchData {
+        ZStack{
+            VStack{
+                if viewRouter.currentPage == "onboardingView" {
+                    OnboardingView()
+                } else if viewRouter.currentPage == "homeView" {
+                    HomeView()
+                }
+                
+                
+            }.blur(radius: !fetchData.isFetchData ? 15 : 0)
+            if !fetchData.isFetchData && viewRouter.currentPage == "homeView" {
                 LoadingView()
             }
         }
@@ -35,6 +38,6 @@ struct MotherView: View {
 struct MotherView_Previews: PreviewProvider {
     static var previews: some View {
         MotherView().environmentObject(ViewRouter())
-        .environmentObject(FetchingData())
+            .environmentObject(FetchingData())
     }
 }

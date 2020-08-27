@@ -212,7 +212,7 @@ class FetchingData: ObservableObject {
                         let imgT  = card["img"] as? String ?? ""
                         let showT = card["show"] as? Bool ?? false
                         
-                        taskCards.append(TaskCard(img: nameT, name: imgT, show: showT))
+                        taskCards.append(TaskCard(img: imgT, name: nameT, show: showT))
                     }
                     
                     exTest.append(ExercisesData(id: document.documentID, name: name, cards: taskCards, isShow: isShow))

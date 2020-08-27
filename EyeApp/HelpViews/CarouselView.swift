@@ -16,7 +16,8 @@ import URLImage
 struct CarouselView : View {
     
     @State var navBarTitle : String = ""
-    @State var dataIds : [String]
+    @State var dataCard : [TaskCard] = []
+    @State var dataIds : [String] = []
     
     @State var x : CGFloat = 0
     @State var count : CGFloat = 0
@@ -25,7 +26,7 @@ struct CarouselView : View {
     @State private var isShow = false
     
     @State private var interstital : GADInterstitial!
-    @State private var dataCard : [TaskCard] = []
+    
     
     //    @ObservedObject private var viewModel = ExViewModel()
     
@@ -100,7 +101,7 @@ struct CarouselView : View {
         .animation(.spring())
         .onAppear {
             
-            self.fetchDataTaskCards(taskIds: self.dataIds)
+//            self.fetchDataTaskCards(taskIds: self.dataIds)
             
             //            self.viewModel.fetchDataTaskCards(taskIds: self.dataIds)
             

@@ -24,7 +24,7 @@ struct Exercises: View {
                 ScrollView{
                     ForEach(exTest) { exData in
                         if exData.isShow {
-                            NavigationLink(destination: CarouselView(navBarTitle: exData.name, dataIds: exData.cardsId)) {
+                            NavigationLink(destination: CarouselView(navBarTitle: exData.name, dataCard: exData.cards)) {
                                 ButtonView(title: exData.name)
                             }
                         }
