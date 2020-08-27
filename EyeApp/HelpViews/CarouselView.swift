@@ -17,7 +17,6 @@ struct CarouselView : View {
     
     @State var navBarTitle : String = ""
     @State var dataCard : [TaskCard] = []
-    @State var dataIds : [String] = []
     
     @State var x : CGFloat = 0
     @State var count : CGFloat = 0
@@ -26,9 +25,6 @@ struct CarouselView : View {
     @State private var isShow = false
     
     @State private var interstital : GADInterstitial!
-    
-    
-    //    @ObservedObject private var viewModel = ExViewModel()
     
     var body : some View{
         VStack{
@@ -101,15 +97,6 @@ struct CarouselView : View {
         .animation(.spring())
         .onAppear {
             
-//            self.fetchDataTaskCards(taskIds: self.dataIds)
-            
-            //            self.viewModel.fetchDataTaskCards(taskIds: self.dataIds)
-            
-
-            
-            
-            //            self.viewModel.taskData[0].show = true
-            
             if(!self.dataCard.isEmpty){
                 self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
                 self.dataCard[0].show = true
@@ -124,6 +111,7 @@ struct CarouselView : View {
             
         }
         .onDisappear {
+//            IT's about advertising // uncomment if u whant money
 //                        if self.interstital.isReady{
 //                            let root = UIApplication.shared.windows.first?.rootViewController
 //                            self.interstital.present(fromRootViewController: root!)
@@ -141,48 +129,11 @@ struct CarouselView : View {
         
         self.dataCard[value].show = true
     }
-    
-    func fetchDataTaskCards(taskIds : [String]) {
-        let rootCollection = Firestore.firestore().collection("taskCards")
-        
-        for id in taskIds {
-            rootCollection.document(id).getDocument { (document, error) in
-                if let document = document, document.exists {
-                    
-                    let data = document.data()!
-                    
-                    let img = data["img"] as! String
-                    
-                    let name = data["name"] as! String
-                    let show = data["show"] as! Bool
-                    
-                    print("Document data: \(data)")
-                    
-                    self.dataCard.append(TaskCard(id: document.documentID, img: img, name: name, show: show))
-                    
-                    
-                } else {
-                    print("Document does not exist")
-                }
-                self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
-                
-                
-                //            self.viewModel.taskData[0].show = true
-                
-                if(!self.dataCard.isEmpty){
-                    self.dataCard[0].show = false
-                }
-            }
-        }
-    }
-    
-    
-    
 }
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselView(navBarTitle: "Test", dataIds: ["EE985mcG6NuX6KdU6Wol","EE985mcG6NuX6KdU6Wol"])
+        CarouselView(navBarTitle: "Test")
     }
 }
 

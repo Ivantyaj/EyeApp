@@ -12,12 +12,6 @@ import FirebaseFirestore
 
 struct Exercises: View {
     
-    @ObservedObject var viewModel = ExViewModel()
-    
-//    @State private var isGetData = false
-    
-//    @State var exTest : [ExercisesData]
-    
     var body: some View {
         VStack {
             if !exTest.isEmpty{
@@ -34,15 +28,6 @@ struct Exercises: View {
             AdBannerView()
         }
         .navigationBarTitle("Упражнения")
-        .onAppear(){
-//            self.viewModel.fetchData()
-            
-//            self.viewModel.fetchDataPop2()
-//            self.exTest = []
-//            self.fetchData()
-            
-            
-        }
     }
     
 //    func fetchData() {
