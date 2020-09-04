@@ -21,8 +21,6 @@ struct MotherView: View {
                 } else if viewRouter.currentPage == "homeView" {
                     HomeView()
                 }
-                
-                
             }.blur(radius: !fetchData.isFetchData ? 15 : 0)
             if !fetchData.isFetchData && viewRouter.currentPage == "homeView" {
                 LoadingView()

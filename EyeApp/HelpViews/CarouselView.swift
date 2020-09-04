@@ -28,6 +28,7 @@ struct CarouselView : View {
     
     var body : some View{
         VStack{
+            
             Spacer()
             if isShow {
                 HStack(spacing: 15){
@@ -37,7 +38,6 @@ struct CarouselView : View {
                         CardView(data: i)
                             .offset(x: self.x)
                             .highPriorityGesture(DragGesture()
-                                
                                 .onChanged({ (value) in
                                     
                                     if value.translation.width > 0{
@@ -70,7 +70,7 @@ struct CarouselView : View {
                                     else{
                                         
                                         
-                                        if -value.translation.width > ((self.screen - 80) / 2) && Int(self.count) !=  (self.self.dataCard.count - 1){
+                                        if -value.translation.width > ((self.screen - 80) / 2) && Int(self.count) !=  (self.dataCard.count - 1){
                                             
                                             self.count += 1
                                             self.updateHeight(value: Int(self.count))
@@ -97,10 +97,10 @@ struct CarouselView : View {
         .animation(.spring())
         .onAppear {
             
-            if(!self.dataCard.isEmpty){
+//            if(!self.dataCard.isEmpty){
                 self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
                 self.dataCard[0].show = true
-            }
+//            }
             
             self.isShow = true
             
@@ -111,11 +111,11 @@ struct CarouselView : View {
             
         }
         .onDisappear {
-//            IT's about advertising // uncomment if u whant money
-//                        if self.interstital.isReady{
-//                            let root = UIApplication.shared.windows.first?.rootViewController
-//                            self.interstital.present(fromRootViewController: root!)
-//                        }
+            //            IT's about advertising // uncomment if u whant money
+            //                        if self.interstital.isReady{
+            //                            let root = UIApplication.shared.windows.first?.rootViewController
+            //                            self.interstital.present(fromRootViewController: root!)
+            //                        }
         }
     }
     
@@ -139,7 +139,7 @@ struct Carousel_Previews: PreviewProvider {
 
 struct CardView : View {
     
-    @State var data : TaskCard
+    var data : TaskCard
     
     var body : some View{
         
@@ -163,13 +163,13 @@ struct CardView : View {
                         $0.image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-//                            .clipShape(RoundedRectangle(cornerRadius: 5))
-//                            .padding(.all, 40.0)
-//                            .shadow(radius: 10.0)
+                        //                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                        //                            .padding(.all, 40.0)
+                        //                            .shadow(radius: 10.0)
             })
-//            Image(data.img)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
+            //            Image(data.img)
+            //                .resizable()
+            //                .aspectRatio(contentMode: .fit)
             Spacer()
             
             Text(data.name)
@@ -192,3 +192,4 @@ struct TaskCard : Identifiable, Codable {
     var name : String
     var show : Bool
 }
+

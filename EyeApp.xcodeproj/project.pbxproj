@@ -32,6 +32,7 @@
 		E29FBEA324AF10A800AD2814 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29FBEA224AF10A800AD2814 /* Cards.swift */; };
 		E2B0678724C819EF0030C61A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B0678624C819EF0030C61A /* ButtonView.swift */; };
 		E2B067A924C87D150030C61A /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B067A824C87D150030C61A /* AdBannerView.swift */; };
+		E2C2AF6824FE495100E65443 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF6624FE495100E65443 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		E29FBEA224AF10A800AD2814 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		E2B0678624C819EF0030C61A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		E2B067A824C87D150030C61A /* AdBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerView.swift; sourceTree = "<group>"; };
+		E2C2AF6724FE495100E65443 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				E221CE5524AA7F6000EE6BE3 /* Tests.swift */,
 				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
 				E258281C24CC5BF500A7D652 /* DataForExercises.swift */,
+				E2C2AF6624FE495100E65443 /* Model.xcdatamodeld */,
 			);
 			path = EyeApp;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				E221CE4C24A74FDF00EE6BE3 /* HomeView.swift in Sources */,
 				E221CE1424A485F600EE6BE3 /* SceneDelegate.swift in Sources */,
 				E221CE1624A485F600EE6BE3 /* OnboardingView.swift in Sources */,
+				E2C2AF6824FE495100E65443 /* Model.xcdatamodeld in Sources */,
 				E2B067A924C87D150030C61A /* AdBannerView.swift in Sources */,
 				E221CE6124ABA89000EE6BE3 /* AmslerModalView.swift in Sources */,
 				E221CE5C24AB6B7700EE6BE3 /* AmslerTest.swift in Sources */,
@@ -498,6 +502,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2C2AF6624FE495100E65443 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2C2AF6724FE495100E65443 /* Model.xcdatamodel */,
+			);
+			currentVersion = E2C2AF6724FE495100E65443 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E221CE0624A485F600EE6BE3 /* Project object */;
 }
