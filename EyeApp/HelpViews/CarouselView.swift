@@ -38,7 +38,7 @@ struct CarouselView : View {
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     
                     Button(action: {
-                        if(cardStep < dataCard.count){
+                        if(cardStep < dataCard.count - 1){
                             cardStep += 1
                         } else {
                             cardStep = 0
@@ -48,7 +48,7 @@ struct CarouselView : View {
 //                            if (cardStep < dataCard.count){
 //                                Text("Далее")
 //                            }
-                            cardStep < dataCard.count ? Text("Далее") : Text("Повторить")
+                            cardStep < dataCard.count - 1 ? Text("Далее") : Text("Повторить")
                             Image(systemName: "chevron.right")
                         }
                         .padding(.horizontal)
