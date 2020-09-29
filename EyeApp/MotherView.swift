@@ -17,7 +17,7 @@ struct MotherView: View {
         ZStack{
             VStack{
                 if viewRouter.currentPage == "onboardingView" {
-                    OnboardingView()
+                    Onboarding20View()
                 } else if viewRouter.currentPage == "homeView" {
                     HomeView()
                 }

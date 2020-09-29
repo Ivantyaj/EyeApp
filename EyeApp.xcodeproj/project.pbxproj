@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		910A1FF44831E2E4A3BCECE7 /* Pods_EyeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE2068F32CC1FB5591EB9EB /* Pods_EyeApp.framework */; };
+		E20F16162523561F00ED0BE5 /* Onboarding20View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F16152523561F00ED0BE5 /* Onboarding20View.swift */; };
+		E20F16192523581D00ED0BE5 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F16182523581D00ED0BE5 /* OnboardingCardView.swift */; };
 		E221CE1224A485F600EE6BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE1124A485F600EE6BE3 /* AppDelegate.swift */; };
 		E221CE1424A485F600EE6BE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE1324A485F600EE6BE3 /* SceneDelegate.swift */; };
 		E221CE1624A485F600EE6BE3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221CE1524A485F600EE6BE3 /* OnboardingView.swift */; };
@@ -39,6 +41,8 @@
 		1B7FA3812D9627800980CC20 /* Pods-EyeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeApp.release.xcconfig"; path = "Target Support Files/Pods-EyeApp/Pods-EyeApp.release.xcconfig"; sourceTree = "<group>"; };
 		290CF519E3C7772BAD6C7449 /* Pods-EyeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeApp.debug.xcconfig"; path = "Target Support Files/Pods-EyeApp/Pods-EyeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3EE2068F32CC1FB5591EB9EB /* Pods_EyeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EyeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E20F16152523561F00ED0BE5 /* Onboarding20View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding20View.swift; sourceTree = "<group>"; };
+		E20F16182523581D00ED0BE5 /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
 		E221CE0E24A485F600EE6BE3 /* EyeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E221CE1124A485F600EE6BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E221CE1324A485F600EE6BE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				E221CE5324AA7F3A00EE6BE3 /* Exercises.swift */,
 				E258281C24CC5BF500A7D652 /* DataForExercises.swift */,
 				E2C2AF6624FE495100E65443 /* Model.xcdatamodeld */,
+				E20F16152523561F00ED0BE5 /* Onboarding20View.swift */,
 			);
 			path = EyeApp;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				E2B0678624C819EF0030C61A /* ButtonView.swift */,
 				E2B067A824C87D150030C61A /* AdBannerView.swift */,
 				E293C2D824F6468C009A35C5 /* LoadingView.swift */,
+				E20F16182523581D00ED0BE5 /* OnboardingCardView.swift */,
 			);
 			path = HelpViews;
 			sourceTree = "<group>";
@@ -201,7 +207,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = IVDEV;
 				TargetAttributes = {
 					E221CE0D24A485F600EE6BE3 = {
@@ -293,12 +299,14 @@
 				E29FBEA124ACB8C900AD2814 /* RadioButtons.swift in Sources */,
 				E29FBE9E24ACB1A100AD2814 /* DaltonismCard.swift in Sources */,
 				E2B0678724C819EF0030C61A /* ButtonView.swift in Sources */,
+				E20F16192523581D00ED0BE5 /* OnboardingCardView.swift in Sources */,
 				E221CE5624AA7F6000EE6BE3 /* Tests.swift in Sources */,
 				E221CE5024A750DA00EE6BE3 /* MotherView.swift in Sources */,
 				E258281D24CC5BF500A7D652 /* DataForExercises.swift in Sources */,
 				E221CE1224A485F600EE6BE3 /* AppDelegate.swift in Sources */,
 				E28B3DD924C6E0DA00294BD6 /* CarouselView.swift in Sources */,
 				E29FBE9A24ABB8DD00AD2814 /* SquareButton.swift in Sources */,
+				E20F16162523561F00ED0BE5 /* Onboarding20View.swift in Sources */,
 				E29FBE9C24AC90EB00AD2814 /* DaltonismTest.swift in Sources */,
 				E221CE5424AA7F3A00EE6BE3 /* Exercises.swift in Sources */,
 				E293C2D924F6468C009A35C5 /* LoadingView.swift in Sources */,
@@ -352,6 +360,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -376,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -412,6 +421,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -430,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
