@@ -18,11 +18,11 @@ struct MotherView: View {
             VStack{
                 if viewRouter.currentPage == "onboardingView" {
                     Onboarding20View()
-                } else if viewRouter.currentPage == "homeView" {
-                    HomeView()
+                } else if viewRouter.currentPage == "homeView" && fetchData.isFetchData{
+                    HomeView20()
                 }
             }.blur(radius: !fetchData.isFetchData ? 15 : 0)
-            if !fetchData.isFetchData && viewRouter.currentPage == "homeView" {
+            if !fetchData.isFetchData {
                 LoadingView()
             }
         }

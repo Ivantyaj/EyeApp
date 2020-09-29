@@ -59,7 +59,7 @@ struct Onboarding20View: View {
                 }
             }
             if self.isHomeView {
-                HomeView()
+                HomeView20()
             }
         }
     }

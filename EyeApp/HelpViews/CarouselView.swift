@@ -18,75 +18,46 @@ struct CarouselView : View {
     @State var navBarTitle : String = ""
     @State var dataCard : [TaskCard] = []
     
-    @State var x : CGFloat = 0
-    @State var count : CGFloat = 0
-    @State var screen = UIScreen.main.bounds.width - 30
-    @State var op : CGFloat = 0
     @State private var isShow = false
     
     @State private var interstital : GADInterstitial!
+    
+    @State private var cardStep = 0
     
     var body : some View{
         VStack{
             
             Spacer()
             if isShow {
-                HStack(spacing: 15){
+                VStack {
+                    TabView(selection: $cardStep){
+                        ForEach(0..<dataCard.count){index in
+                            CardView(data: dataCard[index]).tag(index)
+                        }
+                    }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     
-                    ForEach(dataCard) {i in
-                        
-                        CardView(data: i)
-                            .offset(x: self.x)
-                            .highPriorityGesture(DragGesture()
-                                .onChanged({ (value) in
-                                    
-                                    if value.translation.width > 0{
-                                        
-                                        self.x = value.location.x
-                                    }
-                                    else{
-                                        
-                                        self.x = value.location.x - self.screen
-                                    }
-                                    
-                                })
-                                .onEnded({ (value) in
-                                    
-                                    if value.translation.width > 0{
-                                        
-                                        
-                                        if value.translation.width > ((self.screen - 80) / 2) && Int(self.count) != 0{
-                                            
-                                            
-                                            self.count -= 1
-                                            self.updateHeight(value: Int(self.count))
-                                            self.x = -((self.screen + 15) * self.count)
-                                        }
-                                        else{
-                                            
-                                            self.x = -((self.screen + 15) * self.count)
-                                        }
-                                    }
-                                    else{
-                                        
-                                        
-                                        if -value.translation.width > ((self.screen - 80) / 2) && Int(self.count) !=  (self.dataCard.count - 1){
-                                            
-                                            self.count += 1
-                                            self.updateHeight(value: Int(self.count))
-                                            self.x = -((self.screen + 15) * self.count)
-                                        }
-                                        else{
-                                            
-                                            self.x = -((self.screen + 15) * self.count)
-                                        }
-                                    }
-                                })
-                        )
+                    Button(action: {
+                        if(cardStep < dataCard.count){
+                            cardStep += 1
+                        } else {
+                            cardStep = 0
+                        }
+                    }) {
+                        HStack {
+//                            if (cardStep < dataCard.count){
+//                                Text("Далее")
+//                            }
+                            cardStep < dataCard.count ? Text("Далее") : Text("Повторить")
+                            Image(systemName: "chevron.right")
+                        }
+                        .padding(.horizontal)
+                        .padding()
+                        .background(Capsule().fill(Color("ButtonColor")))
+                        .accentColor((Color("Light")))
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width)
-                .offset(x: self.op)
+                
             }
             Spacer()
             
@@ -96,11 +67,7 @@ struct CarouselView : View {
         .background(Color.black.opacity(0.07).edgesIgnoringSafeArea(.bottom))
         .animation(.spring())
         .onAppear {
-            
-//            if(!self.dataCard.isEmpty){
-                self.op = ((self.screen + 15) * CGFloat(self.dataCard.count / 2)) - (self.dataCard.count % 2 == 0 ? ((self.screen + 15) / 2) : 0)
-                self.dataCard[0].show = true
-//            }
+
             
             self.isShow = true
             
@@ -118,22 +85,13 @@ struct CarouselView : View {
             //                        }
         }
     }
-    
-    func updateHeight(value : Int){
-        
-        
-        for i in 0..<self.dataCard.count{
-            
-            self.dataCard[i].show = false
-        }
-        
-        self.dataCard[value].show = true
-    }
 }
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselView(navBarTitle: "Test")
+        CarouselView(navBarTitle: "Test", dataCard: [
+            TaskCard(img: "https://im0-tub-by.yandex.net/i?id=199a56cddd1fea973c6fa1679332348e&n=13", name: "sdfaf", show: true),
+            TaskCard(img: "https://im0-tub-by.yandex.net/i?id=199a56cddd1fea973c6fa1679332348e&n=13", name: "wqerqr", show: true)])
     }
 }
 
